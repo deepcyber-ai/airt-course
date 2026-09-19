@@ -16,7 +16,7 @@ Each module README walks you through that module's labs and the exact commands.
 
 | Folder / file | What it is |
 |---|---|
-| `modules/module1…10/` | **The labs for each module — this is where you work.** Open the README in your module. |
+| `modules/module4…10/` | **The labs for each module — this is where you work.** Open the README in your module. |
 | `labs-ctf/` | The Capture-the-Flag exercises (encoding, blind, supply-chain, levels), run against a shared target ladder. Used in Modules 4 and 8. Bring the targets up with `bash labs-ctf/start-levels.sh`. |
 | `labs/` | Shared helper **code** the labs import (model selection, flag detection, reset). You don't run these directly — the exercises call them. |
 | `models.yaml` | The catalogue of **attacker / judge** models the tools use. Not the target — that's already running on the VM. |
