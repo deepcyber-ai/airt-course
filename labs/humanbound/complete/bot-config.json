@@ -1,0 +1,15 @@
+{
+  "thread_init": {
+    "endpoint": "http://localhost:8090/session/new",
+    "headers": {"Content-Type": "application/json"},
+    "payload": {}
+  },
+  "chat_completion": {
+    "endpoint": "http://localhost:8090/chat",
+    "headers": {
+      "Content-Type": "application/json",
+      "x-session-id": "$session_id"
+    },
+    "payload": {"input": "$PROMPT"}
+  }
+}

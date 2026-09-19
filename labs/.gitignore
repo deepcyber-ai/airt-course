@@ -1,0 +1,8 @@
+out/
+__pycache__/
+*.pyc
+
+# Spikee seed datasets are lab inputs, not results — the repo-root *.jsonl
+# rule would otherwise drop them and leave lab 3 with nothing to run against.
+!spikee/complete/seeds-goat/*.jsonl
+!spikee/complete/seeds-larkfield/*.jsonl

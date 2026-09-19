@@ -1,0 +1,19 @@
+# What Money Agent is, and is not, allowed to do.
+#
+# This scope is deliberately thin. It will run, and it will produce findings,
+# and those findings will be generic — jailbreak attempts, tone, role drift.
+#
+# The `restricted` list is what turns generic probes into targeted tool-abuse
+# attacks. With one vague entry, the engine has almost nothing to aim at.
+#
+# Your task is to replace it. See README.md.
+
+business_scope: "A financial chatbot"
+
+permitted:
+  - Answer customer questions
+
+restricted:
+  - Do anything inappropriate
+
+more_info: "finance"

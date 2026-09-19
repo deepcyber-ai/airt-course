@@ -1,0 +1,31 @@
+{
+  "_label": "CONSTRUCTED SAVED FALLBACK - a labelled illustrative pair for the runtime-governance demo. NOT a recording of a live run - it is a constructed illustration of the MECHANISM, not recorded mechanism evidence. It shows the SAME tool action with the Cedar policy OFF and ON. Replace with an authenticated capture from the governance checkout when one is available; name the real backend and policy version then.",
+  "constructed": true,
+  "demo": "runtime governance (Cedar policy allow/deny/escalate)",
+  "backend": "illustrative (name the real backend when you capture a live run - a shim/echo backend does NOT demonstrate any named vendor backend)",
+  "policy_version": "illustrative-v0",
+  "action_under_test": {
+    "tool": "delete_document",
+    "arguments": {
+      "case_id": "INV-2231",
+      "document_id": "DOC-88"
+    }
+  },
+  "policy_off": {
+    "policy_enabled": false,
+    "tool_call_attempted": true,
+    "executed": true,
+    "policy_decision": null,
+    "result": "with no policy, the attempted tool call is EXECUTED"
+  },
+  "policy_on": {
+    "policy_enabled": true,
+    "tool_call_attempted": true,
+    "executed": false,
+    "policy_decision": "DENY",
+    "decision_reason": "Cedar policy forbids delete_document on an open investigation without a supervisor grant",
+    "result": "the policy engine DENIES the attempted call BEFORE it executes (attempted != executed)",
+    "note": "the DENY is the policy engine's decision, shown separately from any model refusal text - do not credit the policy with the model's own reticence"
+  },
+  "how_to_read": "The difference between policy_off and policy_on is the control being demonstrated: a runtime policy decided the same action differently. The policy decision is a distinct observation from the model's prose and from an authenticated backend effect."
+}
