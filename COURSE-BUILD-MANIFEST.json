@@ -2,10 +2,10 @@
   "product": "airt-harness-course",
   "edition": "AMLUCS-2026",
   "course_manifest_version": "0.1-draft",
-  "source_revision": "7d92e88c8c76f47783fa7045bedeeb8ade62d8b0",
+  "source_revision": "e714ebb6716bd51048374cc388c95edb83639e4e",
   "dirty_files": {},
   "consumes": {
-    "harness_release": "v1.0.17",
+    "harness_release": "v1.0.18",
     "governance_release": "v1.0.0-governance",
     "runtime": "airt-harness VM \u2014 source under /opt/airt/src, course venv on PATH",
     "tool_pins": {
