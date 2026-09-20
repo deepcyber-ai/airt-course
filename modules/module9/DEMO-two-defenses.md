@@ -1,4 +1,4 @@
-# Demo script — two runtime defenses, one finding (with our HumanBound recording)
+# Demo script — two runtime defenses on two examples (with our HumanBound recording)
 
 **Thesis.** Show **two different runtime-defense approaches** and contrast what each catches.
 They run on **different examples** (that is part of the point — different controls suit
@@ -8,15 +8,17 @@ app (a *different* application and objective).
 
 Verified 2026-09-20: `hb guardrails` produced 4 CANDIDATE rules from our Larkfield recording,
 and a firewall **configured to forbid the disclosure** returned **BLOCK** on the recorded
-attack reply and **PASS** on a benign reply (an offline check of saved content). The governance
+attack reply and **PASS** on a constructed benign reply (an offline check of saved content). The governance
 side runs live on its own app.
 
 ---
 
-## 0. The shared finding — our recording
+## 0. The first example — our Larkfield recording (Defense 1 runs on this)
 
-The recorded HumanBound run: **304 single-turn tests, 8 disclosed `LARKFIELD-CFG-7Q2X`**
-(system_exposure, critical). Inspect it:
+Defense 1 uses our recorded HumanBound run: **304 single-turn tests, 8 disclosed
+`LARKFIELD-CFG-7Q2X`** (system_exposure, critical). Defense 2 runs on a *different* example
+(the DeepTrace evidence-disposal app, below) — there is no single shared finding. Inspect the
+recording:
 
 ```bash
 python3 course-production/module4/native-demo-examples/humanbound/prepared-run/read-results.py
@@ -101,7 +103,7 @@ optional and not used by this demo or the lab.
 
 - **Guardrail rule generation from our recording:** 4 rules, both HumanBound and OpenAI formats.
 - **Firewall check (offline):** a firewall configured to forbid the disclosure returned
-  **BLOCK** on the recorded config-leak reply and **PASS** on a benign reply — bundled
+  **BLOCK** on the recorded config-leak reply and **PASS** on a constructed benign reply — bundled
   `hb_firewall`, own model key, no account. It checks SAVED content and judges against its
   scope; it does not rerun the attack live or auto-wire the exported rules.
 - **Governance side:** runs live on its own app (DeepTrace investigations, :7860) — a different
