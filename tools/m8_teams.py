@@ -29,7 +29,7 @@ evidence is each team's DATABASE (its own --db) and its own run directory - save
 those before a reset. Audit-file isolation would need a harness flag and is out of
 scope here; it is stated, not silently claimed.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 import argparse
 import json

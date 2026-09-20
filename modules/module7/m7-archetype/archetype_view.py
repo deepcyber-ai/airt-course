@@ -14,7 +14,7 @@ For the selection decision, use the constructed coverage in
 `modules/module7/m7-selection/benchmark_view.py` (attackers x objectives, with counts), not
 one episode per objective. Do not read these cards as a model ranking.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 import argparse
 import glob

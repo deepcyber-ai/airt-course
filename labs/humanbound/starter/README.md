@@ -99,4 +99,4 @@ discarded. In our runs Claude Sonnet 5 lost 78 of 97 verdicts this way, while
 qwen lost none and cost a twelfth as much. Check how many verdicts you got
 before reading the grade.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.

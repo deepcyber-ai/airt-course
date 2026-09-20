@@ -31,7 +31,7 @@ Two inputs:
                        scored. Every verdict (input, raw output, model, criterion
                        id, judgement source) is saved to scores.{live,offline}.json in the batch dir.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 import argparse
 import glob

@@ -13,7 +13,7 @@ one shared ceiling. Offline runs never touch it (no service calls, no spend).
 
     AIRT_RUN_DIR/m6-budget.json     (default AIRT_RUN_DIR = course-runs/group-01)
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 import json
 import os

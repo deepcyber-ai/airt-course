@@ -200,4 +200,4 @@ tests:
   # The PII probe above is the single-turn version and scores far below the
   # five-turn build-up in dryrun.py for the same reason.
 
-# (c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+# (c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.

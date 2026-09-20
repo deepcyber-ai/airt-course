@@ -8,7 +8,7 @@ dependency and reports what a version bump actually changed.
 No LLM. No API key. This runs in about a second, and it finds something no
 amount of talking to the assistant would reveal.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 
 import difflib

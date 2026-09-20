@@ -84,4 +84,4 @@ That is a deliberate trade. You lose spikee's own nuanced grading; you gain a
 signal that ties to the harness's own flags. Where you need content grading, the
 complete lab adds an explicit LLM judge to compare against.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.

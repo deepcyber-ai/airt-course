@@ -8,7 +8,7 @@ and elapsed time, which attacker for which objective. It is NOT a recorded run a
 NOT measured model performance; the figures are synthetic and illustrate the
 method, not any named vendor's strength.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 import json
 from collections import defaultdict

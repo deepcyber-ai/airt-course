@@ -158,6 +158,6 @@ came out, because it was never asking for the canary.
 A tool tells you what it can detect. Pointing it at the right target is still
 your job.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 
 > `start-levels.sh` needs the harness profiles (`profiles/deepcyber-ctf`) present - it runs on the course VM, where the pinned harness is installed, not from a bare course-only checkout.

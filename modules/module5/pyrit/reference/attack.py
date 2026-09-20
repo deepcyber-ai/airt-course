@@ -35,7 +35,7 @@ PyRIT 1.0 notes, since almost every example online is still 0.x:
   * ``AttackResult.last_response`` is a ``MessagePiece`` — the text is on
     ``.converted_value``; there is no ``.get_value()`` at that level
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 
 import argparse

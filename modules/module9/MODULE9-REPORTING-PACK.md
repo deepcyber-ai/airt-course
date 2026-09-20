@@ -115,6 +115,7 @@ Three operations answer different questions - do not conflate them:
    ```bash
    airt-replay <your-profile>/intel/responses.jsonl --list-sessions
    ```
+   (Narrow by time if you have many: add `--since 2h` or `--since 2026-09-20 --until 2026-09-20T18:00`.)
 2. **Replay the session you choose** against the target — does the finding still
    reproduce?
    ```bash

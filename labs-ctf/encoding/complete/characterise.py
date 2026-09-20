@@ -17,7 +17,7 @@ posture with the filter off, and is the control: it proves a probe would have
 worked if it had been allowed through, which is the difference between "the
 filter stopped me" and "the model refused".
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 
 from __future__ import annotations

@@ -18,7 +18,7 @@ Start both versions first:
 (Point --db somewhere on local disk. A synced folder — OneDrive, Dropbox —
 gives SQLite a "disk I/O error" on startup.)
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 
 import json

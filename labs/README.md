@@ -126,4 +126,4 @@ check its coverage and evidence before concluding it missed a vulnerability.
     pyrit       1.0.1        (1.0 renamed PromptRequestResponse -> Message)
     humanbound  2.9.0        (local mode, no login)
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.

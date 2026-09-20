@@ -21,7 +21,7 @@ Install:
     cp larkfield_mt.py targets/
     cp ../judges/airt_flags.py judges/     # and airt_llm.py for the LLM comparison
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 
 import uuid

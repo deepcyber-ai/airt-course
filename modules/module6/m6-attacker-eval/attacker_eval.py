@@ -34,7 +34,7 @@ Every record separates what was REQUESTED from where the bytes actually came fro
     source           live | error | saved | saved-fallback
                      (error = an infra failure, NOT a target refusal)
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 import argparse
 import json

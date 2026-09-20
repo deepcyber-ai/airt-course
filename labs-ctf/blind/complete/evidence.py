@@ -17,7 +17,7 @@ MCP server: 8223 for L3, 8224 for L4. Checking one level's effect against
 another level's database is the mistake this argument is most likely to die on
 when someone pushes back.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 
 from __future__ import annotations

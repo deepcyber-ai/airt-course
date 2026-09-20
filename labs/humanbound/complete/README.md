@@ -84,7 +84,7 @@ Both runs graded F. Neither grade is trustworthy:
 Count exceptions and verdict coverage before quoting any posture score. That
 habit generalises well beyond this tool.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 
 ## Inspecting the evidence (Module 6)
 

@@ -29,7 +29,7 @@ Worth doing when a probe targets one specific thing: a probe aimed at record
 deletion that instead trips the config-disclosure flag has found something real,
 but it has not demonstrated what it claimed to.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 
 import re

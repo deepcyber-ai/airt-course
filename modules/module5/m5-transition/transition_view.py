@@ -12,7 +12,7 @@ The point to land: the scorer here was a deterministic RULE (a marker match),
 not a model. A selected model name in a config does not establish that an LLM
 scorer was ever called.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 import json
 from pathlib import Path

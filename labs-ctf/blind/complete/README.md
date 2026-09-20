@@ -158,6 +158,6 @@ Which is the argument for the whole course. The scoreboard was scaffolding.
 What you take to a client is the four-row table, and the only tool that
 produces it is you.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 
 > `start-levels.sh` needs the harness profiles (`profiles/deepcyber-ctf`) present - it runs on the course VM, where the pinned harness is installed, not from a bare course-only checkout.

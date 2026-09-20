@@ -77,4 +77,4 @@ vulnerability is unchanged, and every automated tool reports clean.
 A tool tells you what it can detect. It never tells you what it missed — and
 "the scan came back clean" is a statement about the scan.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.

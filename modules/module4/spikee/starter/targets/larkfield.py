@@ -18,7 +18,7 @@ labs-ctf/start-levels.sh; bring the ladder up first.
     port=8081     L1 neutral   (default — the participant baseline)
     port=8083     L3 hardened  (the comparison)
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 
 import re

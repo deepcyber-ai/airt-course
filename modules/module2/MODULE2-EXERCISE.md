@@ -151,5 +151,5 @@ tool from a third-party dependency. None of it has been used.
 
 ---
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed. Synthetic targets and data
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source. Synthetic targets and data
 throughout; authorised testing only.

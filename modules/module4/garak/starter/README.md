@@ -99,4 +99,4 @@ the aggregate.
 - `atkgen` is the one probe family that *does* need an attacker model
   (`red_team_model_type` / `red_team_model_name`). Leave it until the PyRIT lab.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.

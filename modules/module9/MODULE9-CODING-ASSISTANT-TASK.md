@@ -242,4 +242,4 @@ open in front of you; and a note of what you actually observed in the reply, kep
 separate from what the flag claimed. The assistant helped you get there faster. It did
 not verify anything - you did.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.

@@ -169,4 +169,4 @@ the transcript. Note too that the reply the LLM judge reads still carries the
 `OWASP{...}` banner, so it is not fully blind to the marker; strip it first for a
 genuinely independent grade. Where the two disagree is the exercise.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.

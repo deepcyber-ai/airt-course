@@ -14,7 +14,7 @@ Keeping them separate matters. If one setting drives both roles, a change in
 results cannot be attributed to either, and you have a confounded experiment
 rather than a comparison.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
 
 from __future__ import annotations

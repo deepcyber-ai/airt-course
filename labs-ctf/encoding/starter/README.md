@@ -65,4 +65,4 @@ decodes, so any encoding defeats it entirely" is.
 Then the harder question: **what would fix it?** If your answer is "add the
 encoded forms to the word list", work out how many forms that is.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.

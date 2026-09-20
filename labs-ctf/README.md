@@ -71,4 +71,4 @@ Do **not** pass `--backend`. The profile opts into the model catalogue, which
 takes over model selection entirely. Pick a model with the GUI dropdown or
 `POST /model`.
 
-(c) 2026 Deep Cyber Ltd. Apache 2.0 licensed.
+(c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
