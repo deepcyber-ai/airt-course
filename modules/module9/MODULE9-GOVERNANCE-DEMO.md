@@ -1,10 +1,17 @@
 # Module 9/10 supporting demo: runtime governance (route + fallback)
 
 A short instructor demonstration: with a Cedar policy on, an agentic target's tool
-actions are allowed, denied or escalated at runtime, and the same attack that
-succeeded without the policy is stopped by it. This is a demonstration, not an
-attendee lab, and it runs from a DEDICATED governance checkout - not from the
-sample document tree in this repo.
+actions are authorized at runtime, and the same attack that succeeded without the
+policy is stopped by it. **Cedar returns allow or deny**; any *escalation* (e.g.
+routing to a human) is the application's own response to that decision, not a Cedar
+verdict. This is a demonstration, not an attendee lab, and it runs from a DEDICATED
+governance checkout — not from the sample document tree in this repo.
+
+**What to show:** a **denied** action with the resource **unchanged** afterwards, and
+an **allowed** action on disposable data — the trusted decision and its effect on
+state, not just the model's refusal text. Supply the exact launch/reset steps for the
+implementation you actually run (its real backend and policy file); keep secrets and
+production resources out of the demonstration.
 
 ## What this is and is not
 

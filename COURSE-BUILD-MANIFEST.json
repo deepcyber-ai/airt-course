@@ -2,7 +2,7 @@
   "product": "airt-harness-course",
   "edition": "AMLUCS-2026",
   "course_manifest_version": "0.1-draft",
-  "source_revision": "2e201fa371c2820a59cca78febc0279bf61d2b1e",
+  "source_revision": "c8c81ff3fed91caafd05f6525b1bc8cb3f1dce9d",
   "dirty_files": {},
   "consumes": {
     "harness_release": "v1.0.0",
@@ -22,7 +22,7 @@
     "m5_budget": "24 requests/pair for the core MANUAL exercise; the OPTIONAL full-tool route (one tool per pair) allows ~\u00a32/learner",
     "scorer_criteria": "m6-orig-v1 / m6-alt-v1"
   },
-  "attendee_file_count": 179,
+  "attendee_file_count": 183,
   "instructor_file_count": 10,
   "scanner": {
     "version": "scan_secrets/1.0.0",
@@ -204,20 +204,30 @@
       "source_sha256": "02b553d8401612e453ad0676386daa891f62f6fd93792708314919d51210b2dd",
       "dest_sha256": "02b553d8401612e453ad0676386daa891f62f6fd93792708314919d51210b2dd"
     },
+    "modules/module9/DEMO-two-defenses.md": {
+      "source": "course-production/module9/DEMO-two-defenses.md",
+      "source_sha256": "469a68c40b61994e5bc5a310a907895cdc0b2ee0641b0655fb709d8c9f0ddb4a",
+      "dest_sha256": "469a68c40b61994e5bc5a310a907895cdc0b2ee0641b0655fb709d8c9f0ddb4a"
+    },
     "modules/module9/MODULE9-CODING-ASSISTANT-TASK.md": {
       "source": "course-production/module9/attendee/MODULE9-CODING-ASSISTANT-TASK.md",
-      "source_sha256": "3f5bb7682e3c0dcfc87ec0996e39f29d596035e87f200b18ca68682942abfd4f",
-      "dest_sha256": "3f5bb7682e3c0dcfc87ec0996e39f29d596035e87f200b18ca68682942abfd4f"
+      "source_sha256": "af00be6452fd10d3ffc840707b9d33283e14486f0fde3e17c88c6dffec4caf79",
+      "dest_sha256": "af00be6452fd10d3ffc840707b9d33283e14486f0fde3e17c88c6dffec4caf79"
+    },
+    "modules/module9/MODULE9-EVIDENCE-TEMPLATE.md": {
+      "source": "course-production/module9/attendee/MODULE9-EVIDENCE-TEMPLATE.md",
+      "source_sha256": "baa59294db41645d7cf8aa49e652ac36fb19038dd4531c1b37c286a5fe870c18",
+      "dest_sha256": "baa59294db41645d7cf8aa49e652ac36fb19038dd4531c1b37c286a5fe870c18"
     },
     "modules/module9/MODULE9-GOVERNANCE-DEMO.md": {
       "source": "course-production/module9/attendee/MODULE9-GOVERNANCE-DEMO.md",
-      "source_sha256": "2be95262cf55a3844fd9babaa741c7455187dbec709559e36bb77586deb5e42a",
-      "dest_sha256": "2be95262cf55a3844fd9babaa741c7455187dbec709559e36bb77586deb5e42a"
+      "source_sha256": "86e87e9b69afc2df0ba40f4bc3e05d884814531eae64c3e612ee526b112a2b46",
+      "dest_sha256": "86e87e9b69afc2df0ba40f4bc3e05d884814531eae64c3e612ee526b112a2b46"
     },
     "modules/module9/MODULE9-REPORTING-PACK.md": {
       "source": "course-production/module9/attendee/MODULE9-REPORTING-PACK.md",
-      "source_sha256": "894885e8fe7ca32ef811d721417bcd01d7fdb87dbf7a6bface75f6c67732a9fe",
-      "dest_sha256": "894885e8fe7ca32ef811d721417bcd01d7fdb87dbf7a6bface75f6c67732a9fe"
+      "source_sha256": "33fe6db0dc7362b7293f7f941a3960b5460ff2706e977df668b2a78a6b1db722",
+      "dest_sha256": "33fe6db0dc7362b7293f7f941a3960b5460ff2706e977df668b2a78a6b1db722"
     },
     "modules/module9/evidence/C01-deletion-reseed.json": {
       "source": "course-production/module9/attendee/evidence/C01-deletion-reseed.json",
@@ -244,10 +254,20 @@
       "source_sha256": "663c21f58a6682db7fefb2b4aae496750857199affde54f18a9fe9f1d750863b",
       "dest_sha256": "663c21f58a6682db7fefb2b4aae496750857199affde54f18a9fe9f1d750863b"
     },
+    "modules/module9/defenses/demo.sh": {
+      "source": "course-production/module9/defenses/demo.sh",
+      "source_sha256": "9271873e19bf3721cc1356231822ca7d2d0160f9c23913f34eba36d8ced55f59",
+      "dest_sha256": "9271873e19bf3721cc1356231822ca7d2d0160f9c23913f34eba36d8ced55f59"
+    },
+    "modules/module9/replay/fallback-session.jsonl": {
+      "source": "course-production/module9/replay/fallback-session.jsonl",
+      "source_sha256": "9e8deb812f011c8127a99c26da07a59c166737fbabb1c5d847e47d7000676fe5",
+      "dest_sha256": "9e8deb812f011c8127a99c26da07a59c166737fbabb1c5d847e47d7000676fe5"
+    },
     "modules/module9/replay/judge_prompts.yaml": {
       "source": "course-production/module9/replay/judge_prompts.yaml",
-      "source_sha256": "3707e8150436534742ff313e288898d300deb48b9509ae717723b8aa7ad0d915",
-      "dest_sha256": "3707e8150436534742ff313e288898d300deb48b9509ae717723b8aa7ad0d915"
+      "source_sha256": "3d474be1750651b962a30177da6fd53ec53603f3674aa40f522d3ef8b7d9483c",
+      "dest_sha256": "3d474be1750651b962a30177da6fd53ec53603f3674aa40f522d3ef8b7d9483c"
     },
     "getting-started.html": {
       "source": "getting-started.html",

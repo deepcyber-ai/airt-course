@@ -2,6 +2,11 @@
 
 **AMLUCS 2026. Supporting demo for Module 9 (Reporting, regression and continuous AI red teaming).**
 
+> **This is the optional detailed version.** The primary Activity 1 (a Module 5 technique
+> against Larkfield) is in `MODULE9-REPORTING-PACK.md`. This page keeps the longer worked
+> example on the Deep Vault "Money Agent" target for anyone who wants the fuller walk-through.
+
+
 This is one bounded task. You will ask an AI coding assistant to extend the existing
 PyRIT lab by one small step, review what it proposes, run it once against the local
 mock target, and then check the saved evidence yourself. The point is not the code.
@@ -180,7 +185,7 @@ run". `crescendo` is multi-turn, so it sends several requests within `max_turns`
 message are a starting point, not the record. Open what the run saved:
 
 ```bash
-# physical sends this run, in order, with ok/error - the request authority
+# requests sent this run, in order, with ok/error - the request record
 cat "$AIRT_RUN_DIR/transport.jsonl"
 
 # PyRIT's own memory and scorer records, read-only so a query cannot mutate evidence
