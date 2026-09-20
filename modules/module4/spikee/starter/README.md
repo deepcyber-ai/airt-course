@@ -72,6 +72,8 @@ target a single probe may be refused; record that too.
 **3. Then GOAT.** See `../complete/README.md` once you have the single-turn
 half working.
 
+**Finding the details:** the run prints `Results saved to results/…jsonl` — open it for the full transcript (each prompt, the reply, the judge output).
+
 ## Why this target needs no judge
 
 `larkfield.py` returns a **bool** rather than text, so spikee scores on our flag

@@ -13,6 +13,10 @@ bottom of that file are the exercise. The target is Larkfield **L1 neutral**
 **No grader-model charge.** Assertions match on the target's own flag markers
 (`OWASP{...}`), which are deterministic, so no grader model is involved.
 
+**What you'll see.** promptfoo prints `Running N test cases…` and shows progress while the model
+answers, then the results table and a `passed / failed` summary. Short pauses can
+occur while requests are in progress. **Finding the details:** `promptfoo view` opens every prompt, reply and assertion result in a browser; the same data is the SQLite DB at `$PROMPTFOO_CONFIG_DIR/promptfoo.db`.
+
 Two details that break integrations elsewhere and are handled for you here: the
 reply field is `output`, and there is no session header, so the harness mints a
 fresh conversation per request. Reusing one session would let the first test

@@ -33,6 +33,9 @@ run () {   # port
   sed "s/8089/${port}/" "${HERE}/../starter/larkfield.json" > "${OUT}/target-${port}.json"
   log="${OUT}/${TAG}-${POSTURE}.log"
   echo "=== ${POSTURE} (:${port}) ==="
+  echo "  garak output -> ${log}"
+  echo "  A quiet console is normal — garak logs to that file. Watch it with:  tail -f \"${log}\""
+  echo "  (the full set is a few minutes; run 'bash \"${HERE}/run.sh\" quick' for a ~1 min check.)"
   # Keep the FULL log and propagate a scanner failure — do not let a piped grep
   # mask a non-zero exit and print "reports" over a crashed run.
   garak --model_type rest \

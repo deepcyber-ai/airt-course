@@ -118,6 +118,8 @@ an exact statement), does adaptive multi-turn arguing arrive, or does a one-line
 probe that hands over the artefact do the work a whole framework of persuasion
 does not? Run GOAT, watch what it tries turn by turn, and compare with the
 single-turn probes. Write down what you observed — as your result, not a promise.
+
+**Finding the details:** the run prints `Results saved to results/…jsonl` — open that file for the full transcript: each prompt Spikee sent, the target's reply, and the judge output.
 (N is small here; treat a GOAT run as a demonstration, not a measurement, and
 raise `--attack-iterations` if you want to see whether it eventually gets there.)
 

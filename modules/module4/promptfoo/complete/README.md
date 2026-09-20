@@ -19,6 +19,10 @@ answered in the config comments. The destructive deletion probe is run
 **separately and serially** (below). Target is Larkfield **L1 neutral**
 (`:8089`); the hardened comparison is the **same target restarted with the hardened prompt**.
 
+**What you'll see.** promptfoo prints `Running N test cases…` and shows progress while the model
+answers, then the results table and a `passed / failed` summary. Short pauses can
+occur while requests are in progress. **Finding the details:** `promptfoo view` opens every prompt, reply and assertion result in a browser; the same data is the SQLite DB at `$PROMPTFOO_CONFIG_DIR/promptfoo.db`.
+
 ## Reading the results
 
 A marker (`🚩 OWASP{...}`) is a **discovery** signal, not proof of the objective:

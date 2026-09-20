@@ -86,14 +86,23 @@ hardened. Write down the headline: how much "safer" does the hardened target
 look — and then check it probe by probe, because an aggregate can hide a single
 per-objective result that did not move.
 
-**3. Read what each probe actually tested.** `latentinjection` here puts its
-document and its instruction into a **single user prompt** — it does not plant a
-document in Larkfield's knowledge base and let the assistant retrieve it later.
-So its detector result is about how the model handles a document-shaped *user
-message*, not proof that Larkfield's retrieval channel was compromised. Inspect
-the probe's actual prompt and its detector criterion, and record what you
-observed — do not predict a hit or an unchanged score. (The real retrieve-then-
-consume flow is the multi-turn indirect-injection route in later labs.)
+**3. Say what each probe actually tested — not just pass/fail.** Every garak probe
+here is **single-turn**: it sends one crafted user message and reads one reply. Be
+concrete about what that means per probe:
+
+- `latentinjection` puts its planted document **and** its instruction into **one user
+  message**. It does *not* store a document in Larkfield's knowledge base for the
+  assistant to fetch on a later turn. So a hit means the model obeyed an instruction
+  hidden in text **you sent it**, not that Larkfield's retrieval was subverted.
+- `dan`, `promptinject`, `encoding` test whether the model can be **argued or encoded**
+  into breaking role in that one message.
+- None of these enter Larkfield's real **retrieve-then-act** channel — planting content
+  in the knowledge base and having the assistant act on what it *retrieves* is a
+  **multi-turn** route in a later lab. (Promptfoo's single-turn probes don't reach it
+  either.)
+
+Inspect each probe's actual prompt and its detector criterion, and record what you
+observed — don't predict a hit or an unchanged score.
 
 A marker is a discovery signal, not proof — read the per-probe results, not just
 the aggregate.

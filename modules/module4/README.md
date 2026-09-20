@@ -80,10 +80,16 @@ promptfoo view
 ### PyRIT
 ```bash
 cd "$COURSE_ROOT/modules/module4/native-demo/pyrit"
-python3 native_pyrit_demo.py
+# edit starter.py — write your single-turn attack in ATTACK — then run it:
+python3 starter.py
+# complete.py is the worked version (benign control + a disclosure attempt):
+python3 complete.py
 ```
-This example deliberately has no scorer — judge the shared objective yourself from the
-saved reply.
+Single-turn (PyRIT sends each prompt once, no attacker model). It deliberately has **no
+scorer** — judge the shared objective yourself from the reply, and confirm the real
+reference is present, not just a flag banner. The full requests and replies
+persist in the SQLite memory DB at `out/pyrit.db` (each `[control]`/`[attack]` line also
+prints as it runs).
 
 ### HumanBound (inspect a recorded run)
 HumanBound generates its own tests and does not sit under the 20-request live allowance,
@@ -100,6 +106,8 @@ exposure it found, not a matched success rate. (The config that drove the run is
 its attacker/judge models may still call a remote provider.)
 
 ## Record (per group)
+
+> Not sure where a tool saved its prompts and replies? [`WHERE-THE-EVIDENCE-IS.md`](WHERE-THE-EVIDENCE-IS.md) has the file + read command for each tool.
 
 Record how many relevant tests you sent and how many made Larkfield reveal the reference
 code. Copy one complete example: the prompt, the reply and the reason it supports your

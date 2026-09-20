@@ -7,12 +7,41 @@ bash modules/module4/garak/complete/run.sh           # full set against the CURR
 POSTURE=hardened bash modules/module4/garak/complete/run.sh
 ```
 
+**A quiet console is normal.** garak's own output goes to the log file, so after
+`=== neutral (:8089) ===` the terminal stays silent until the run finishes (the full
+set is a few minutes). It is not stuck — watch progress with
+`tail -f modules/module4/garak/complete/out/<tag>-<posture>.log` (e.g.
+`…/out/full-neutral.log`) in another terminal, or run
+`bash modules/module4/garak/complete/run.sh quick`
+first for a ~1 min plumbing check. When it finishes it prints the `garak run complete`
+summary and the report locations.
+
 The runner calls the VM's `garak` launcher (its own environment), writes a full
 log per run, and **stops if a scan fails** rather than printing "reports" over a
 crash. Each run writes to `out/<tag>-<posture>*` (`.jsonl` + `.html`), so the
 neutral and hardened runs are kept **side by side, not overwritten**. Target is the
 one Larkfield on `:8089`; the hardened posture is the **same target restarted with
 the hardened prompt** (no new port).
+
+## Finding the details
+
+The `.html` is the **summary**. garak's percentage is **resilience** (higher = the
+target resisted more) and DC-5 is its **best** grade — so a low score is the
+interesting one. The raw evidence is in `out/`:
+
+- **`<tag>-<posture>.hitlog.jsonl`** — only the **failures**: each prompt that got
+  through, with the model's reply. Read this for a low-scoring probe.
+- **`<tag>-<posture>.report.jsonl`** — **every** attempt (pass or fail): its `prompt`
+  and `outputs`.
+
+```bash
+cd modules/module4/garak/complete/out
+# what got through, with the reply (empty for a 100% probe — nothing got through):
+jq -c '{probe, prompt, output}' full-neutral.hitlog.jsonl
+# every prompt + reply for one probe:
+jq -c 'select(.entry_type=="attempt" and (.probe_classname|test("encoding"))) | {prompt, outputs}' full-neutral.report.jsonl
+```
+Read the per-probe evidence, not just the aggregate — the transcript is the finding.
 
 ## The finding to look for
 
@@ -25,29 +54,24 @@ result that did not move**, so look for one and name it, from your own reports.
 (Record your own numbers as the evidence; do not carry numbers measured on a
 different target onto this one.)
 
-## What `latentinjection` here actually tests (read carefully)
+## What `latentinjection` here actually tests
 
-It is tempting to call this "the retrieval attack that hardening can't reach." In
-this configuration that is **not** what happens, on two counts:
+Don't call this "the retrieval attack hardening can't reach." It isn't:
 
-1. **Larkfield's hardened prompt does address retrieved instructions.** Rule 5
-   tells the model to treat tool/document/knowledge-base content as untrusted
-   data and to reject instructions found in it (`system_prompt_hardened.txt`).
-   That rule may fail, but it is present — so do not claim hardening "says nothing
-   about" retrieval.
-2. **This probe does not use Larkfield's retrieval channel.** `latentinjection.
-   LatentInjectionReport` combines its synthetic document and instruction into one
-   prompt, and this REST adapter sends that prompt through the application's **user
-   `input`**. Nothing is planted in the knowledge base and retrieved later. So its
-   detector firing is about how the model handles a document-shaped *user message*
-   — it is not evidence that Larkfield's configured retrieve-then-consume flow was
-   compromised, and it is not the same event as an `OWASP{...}` flag.
+- **It sends everything as one user message.** `latentinjection.LatentInjectionReport`
+  puts its synthetic document *and* its instruction into a single prompt, which this
+  REST adapter sends through the app's user `input`. Nothing is planted in the
+  knowledge base and fetched later. So a hit means the model obeyed an instruction
+  hidden in a **message you sent** — not that Larkfield's retrieval was subverted (and
+  it's not the same event as an `OWASP{...}` flag).
+- **Hardening does cover retrieval.** Rule 5 of the hardened prompt tells the model to
+  treat document/knowledge-base content as untrusted and reject instructions in it. It
+  may fail, but it's there — so don't say hardening "ignores" retrieval.
 
-So: describe it as an **inline/simulated document-context probe**, inspect its
-actual prompt and detector criterion, and record the result without predicting a
-hit or an unchanged score. Contrast that scope with the real retrieve-then-consume
-Larkfield flow — the multi-turn indirect-injection route the single-turn labs
-cannot reach.
+Larkfield's real **retrieve-then-act** flow — content planted in the knowledge base
+that the assistant acts on when it *retrieves* it — is the **multi-turn** indirect-injection
+route in a later lab, not this one. Inspect this probe's actual prompt and detector, and
+record what you saw; don't predict a hit or an unchanged score.
 
 ## Notes worth keeping
 
@@ -72,12 +96,14 @@ reads as empty, which looks exactly like a target that refuses everything.
    move is — improvement, no change, or worse — before you look at the per-probe
    numbers.
 2. **Then read each probe's result per objective.** Which moved and which did not?
-3. **Compare with promptfoo (lab 1).** Promptfoo's single-turn probes cannot enter
-   the retrieve-then-consume flow; garak's `latentinjection` does not enter it
-   either — it sends a document-shaped *user prompt*. Neither reaches Larkfield's
-   real retrieval channel single-turn; that is the multi-turn route in later labs.
-   Say precisely what each tool tested, rather than "one blind spot, one hit."
-4. **Add `dan` and `leakreplay`** to the probe list in `run.sh` and see whether
-   either finds anything the configured flags do not cover.
+3. **Compare with promptfoo (lab 1) — write down precisely what each tool tested.**
+   Both are single-turn, and neither reached Larkfield's retrieve-then-act channel:
+   promptfoo sent your crafted prompts as user input; garak's `latentinjection` sent a
+   document *and* its instruction as one user message. So each answered "does the model
+   obey an instruction in the message I sent it?" — not "was the knowledge-base retrieval
+   subverted?" State that per tool, rather than a vague "one tool missed, one hit".
+4. **Add a probe the batch isn't already running.** The full set already includes
+   `dan.DanInTheWild` and `leakreplay.GuardianComplete`, so pick a *different* probe (or a
+   whole family) and see whether it finds anything the configured flags don't cover.
 
 (c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
