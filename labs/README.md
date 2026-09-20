@@ -24,7 +24,7 @@ the endpoint named on your exercise.** The defaults are:
 | Target | Port | Notes |
 |---|--:|---|
 | Larkfield — ordinary VM mock | 8089 | the neutral course target; its canonical harness API is on **8000** |
-| Larkfield — level ladder | 8081 | separate examples: l1 neutral **8081**, l3 hardened **8083** |
+| Larkfield | 8089 | one target (`airt-target larkfield`); restart with the hardened prompt for the hardened posture |
 | Investigations | 8091 | a separate profile, **not** a hardened Larkfield/DVC entry |
 | Deep Vault Capital (Module 8) | per team | the endpoint is assigned per team; **select and confirm the model and prompt configuration from the Module 8 brief** — recording a model name does not itself select it |
 
@@ -79,7 +79,7 @@ no "run all five in order" exercise.
 
 ```bash
 # 1. the target must be up — use YOUR assigned endpoint (example: neutral ladder)
-curl -s localhost:8081/health
+curl -s localhost:8089/health
 
 # 2. reset ONLY your assigned instance, and save your evidence first.
 #    Do not send a Larkfield group to a generic/other-team reset or collector —

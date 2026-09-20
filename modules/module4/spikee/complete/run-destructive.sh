@@ -18,7 +18,7 @@
 set -uo pipefail
 
 MODE="${1:?usage: run-destructive.sh mutations|goat|all <port> <dataset.jsonl> [goat.jsonl]}"
-PORT="${2:-8081}"
+PORT="${2:-8089}"
 DS="${3:?supply the generated dataset path}"
 GOAT="${4:-datasets/goat-dataset.jsonl}"
 BASE="http://localhost:${PORT}"

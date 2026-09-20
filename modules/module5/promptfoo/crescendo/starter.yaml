@@ -27,7 +27,7 @@ targets:
   - id: https
     label: larkfield-neutral
     config:
-      url: http://localhost:8081/chat          # L1 neutral (:8083 hardened)
+      url: http://localhost:8089/chat          # neutral (restart hardened to compare)
       method: POST
       headers:
         Content-Type: application/json

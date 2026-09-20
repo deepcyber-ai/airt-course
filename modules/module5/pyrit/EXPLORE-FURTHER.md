@@ -2,7 +2,7 @@
 
 Use this note after the Module 5 closing discussion. The worked examples give you a starting configuration. These are optional small experiments. Choose one rather than trying to complete all of them. Copy the file before changing it, then change one variable at a time.
 
-Use the neutral Larkfield target on port 8081 or the hardened target on port 8083. Use synthetic data and a read-only objective. Do not use deletion, update or code-execution objectives in this exercise.
+Use the Larkfield target on port 8089 (for the hardened posture, restart it with the hardened prompt — same port). Use synthetic data and a read-only objective. Do not use deletion, update or code-execution objectives in this exercise.
 
 ## Keep a short run record
 

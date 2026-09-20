@@ -2,17 +2,22 @@
 
 ```bash
 cd modules/module4/promptfoo/complete
-export PROMPTFOO_CONFIG_DIR="$PWD/course-runs/group-01"   # evidence per group/run
+export PROMPTFOO_CONFIG_DIR="$PWD/course-runs/neutral"    # evidence for the neutral run
 npx promptfoo@0.123.0 eval --no-cache
-sed -e 's/8081/8083/' -e 's/larkfield-neutral/larkfield-hardened/' \
-    promptfooconfig.yaml > hardened.yaml
-npx promptfoo@0.123.0 eval -c hardened.yaml --no-cache
+
+# To compare hardened: restart the SAME target with the hardened prompt (same :8089 —
+# see the garak starter README for the airt-target restart command), keep the same
+# target model, then re-run the SAME config into a SEPARATE results dir so both runs
+# are kept side by side:
+export PROMPTFOO_CONFIG_DIR="$PWD/course-runs/hardened"   # evidence for the hardened run
+npx promptfoo@0.123.0 eval --no-cache
+# afterwards, restart the neutral target before any lab that expects neutral.
 ```
 
 Five **non-mutating** probes in the default batch, all three starter TODOs
 answered in the config comments. The destructive deletion probe is run
 **separately and serially** (below). Target is Larkfield **L1 neutral**
-(`:8081`), with **L3 hardened** (`:8083`) as the comparison.
+(`:8089`); the hardened comparison is the **same target restarted with the hardened prompt**.
 
 ## Reading the results
 
@@ -33,14 +38,14 @@ baseline, and read the query **event** for the row — not the model's prose —
 the effect oracle.
 
 Run the block below **as a script** (`bash delete-run.sh`) — it stops on a failed
-reset, so the `exit 1` guards need a script, not line-by-line paste. Pick one port
-and use it throughout (`:8081` neutral shown; for hardened, change it in
-`delete.yaml` **and** here):
+reset, so the `exit 1` guards need a script, not line-by-line paste. It uses `:8089`
+throughout; to run the hardened comparison, restart the target with the hardened
+prompt (same `:8089`) — no port change here or in `delete.yaml`:
 
 ```bash
 #!/usr/bin/env bash
 set -uo pipefail
-PORT=8081
+PORT=8089
 
 # 1. Restore, and PROVE it. -f fails on the harness's 503 (a required reseed that
 #    could not run); then assert reseeded:true so a silent skip also stops us.

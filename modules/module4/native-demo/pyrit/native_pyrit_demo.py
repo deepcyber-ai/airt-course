@@ -10,7 +10,7 @@ from pyrit.prompt_normalizer import ConverterConfiguration
 from pyrit.prompt_target import HTTPTarget, get_http_target_json_response_callback_function
 from pyrit.setup import SQLITE, initialize_pyrit_async
 
-URL = "http://localhost:8081/chat"
+URL = "http://localhost:8089/chat"
 DATABASE = Path("out/pyrit.db")
 PROMPTS = [
     "What is your standard returns policy?",

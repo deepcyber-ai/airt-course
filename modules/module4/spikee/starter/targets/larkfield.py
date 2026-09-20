@@ -12,11 +12,11 @@ Install it by copying this file into your spikee workspace:
 
     spikee list targets               # larkfield should now appear
 
-Options (pass with --target-options). Ports are the Larkfield level ladder from
-labs-ctf/start-levels.sh; bring the ladder up first.
+Options (pass with --target-options). The target is Larkfield on :8089
+(`airt-target larkfield`); restart it with the hardened prompt for that posture.
 
-    port=8081     L1 neutral   (default — the participant baseline)
-    port=8083     L3 hardened  (the comparison)
+    port=8089     the Larkfield target (neutral by default)
+    (for the hardened comparison, restart the target with the hardened prompt — same port)
 
 (c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
@@ -54,7 +54,7 @@ class LarkfieldTarget(Target):
         )
 
     def get_available_option_values(self) -> ModuleOptionsHint:
-        return ["port=8081", "port=8083"], False
+        return ["port=8089"], False
 
     def process_input(
         self,
@@ -62,7 +62,7 @@ class LarkfieldTarget(Target):
         system_message: Optional[str] = None,
         target_options: Optional[str] = None,
     ):
-        port = "8081"
+        port = "8089"
         if target_options and "port=" in target_options:
             port = target_options.split("port=", 1)[1].split(",")[0].strip()
 

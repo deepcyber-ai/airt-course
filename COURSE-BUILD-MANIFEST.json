@@ -2,7 +2,7 @@
   "product": "airt-harness-course",
   "edition": "AMLUCS-2026",
   "course_manifest_version": "0.1-draft",
-  "source_revision": "e714ebb6716bd51048374cc388c95edb83639e4e",
+  "source_revision": "0281ae39b1b77d5791d8faa0c6a8bcde9f49550e",
   "dirty_files": {},
   "consumes": {
     "harness_release": "v1.0.18",
@@ -22,7 +22,7 @@
     "m5_budget": "24 requests/pair for the core MANUAL exercise; the OPTIONAL full-tool route (one tool per pair) allows ~\u00a32/learner",
     "scorer_criteria": "m6-orig-v1 / m6-alt-v1"
   },
-  "attendee_file_count": 183,
+  "attendee_file_count": 184,
   "instructor_file_count": 10,
   "scanner": {
     "version": "scan_secrets/1.0.0",
@@ -31,7 +31,7 @@
   },
   "instructor_archive": {
     "path": "instructor-AMLUCS-2026-0.1-draft.tar.gz",
-    "sha256": "51533eb1499534cc8da71d2ec2867bea5a517f2c33e0ccd8490dc200931b7557"
+    "sha256": "5d55d611e8a5c621a91e8c7fe4cdfb0e66bf449869e80dc4c8ebeb361c5bea8f"
   },
   "attendee_files": {
     "CONFIGURING-MODELS.md": {
@@ -53,6 +53,11 @@
       "source": "course-production/COURSE-LICENCE.md",
       "source_sha256": "8ae0ce14bb6455c57b0470847af5b6abd254f7a7b62f5e59a8ad50391279e05d",
       "dest_sha256": "8ae0ce14bb6455c57b0470847af5b6abd254f7a7b62f5e59a8ad50391279e05d"
+    },
+    "GETTING-STARTED-WITH-COURSE-TOOLS.md": {
+      "source": "course-production/GETTING-STARTED-WITH-COURSE-TOOLS.md",
+      "source_sha256": "dc649c9f44347eb0ecf4f506ccdf6c29013946cd65b367622d8efaaf79d8bf06",
+      "dest_sha256": "dc649c9f44347eb0ecf4f506ccdf6c29013946cd65b367622d8efaaf79d8bf06"
     },
     "modules/module1/MODULE1-FOUNDATIONS-ACTIVITY.md": {
       "source": "course-production/module1/attendee/MODULE1-FOUNDATIONS-ACTIVITY.md",
@@ -91,18 +96,18 @@
     },
     "modules/module4/README.md": {
       "source": "course-production/module4/attendee/README.md",
-      "source_sha256": "c0b649bf332f95e9f09ad03c34159c3af34c56191b187c2f2385a707c488643b",
-      "dest_sha256": "c0b649bf332f95e9f09ad03c34159c3af34c56191b187c2f2385a707c488643b"
+      "source_sha256": "b3bdef89fece28036895794c5d7c9c8f8733e2d624b21d7d2ffcc78cb214465f",
+      "dest_sha256": "b3bdef89fece28036895794c5d7c9c8f8733e2d624b21d7d2ffcc78cb214465f"
     },
     "modules/module4/native-demo/README.md": {
       "source": "course-production/module4/native-demo-examples/README.md",
-      "source_sha256": "e7fe6f89777a2c75708bb4a273eddd928467d281f69c16e7ae6c919bd242e18e",
-      "dest_sha256": "e7fe6f89777a2c75708bb4a273eddd928467d281f69c16e7ae6c919bd242e18e"
+      "source_sha256": "5f04d7c5321c1de4f9953c78751f430fea2620453857919d9d44a5e21bbc95e5",
+      "dest_sha256": "5f04d7c5321c1de4f9953c78751f430fea2620453857919d9d44a5e21bbc95e5"
     },
     "modules/module4/native-demo/humanbound/bot-config.json": {
       "source": "course-production/module4/native-demo-examples/humanbound/bot-config.json",
-      "source_sha256": "61a858600a4003bb2487383f12a954ab58094375f5564cf40460c4fdf53ead67",
-      "dest_sha256": "61a858600a4003bb2487383f12a954ab58094375f5564cf40460c4fdf53ead67"
+      "source_sha256": "3efc8bfd4465a6f8cd9976443bbbff49bb36339b903d9e5cd2ca6383454046a3",
+      "dest_sha256": "3efc8bfd4465a6f8cd9976443bbbff49bb36339b903d9e5cd2ca6383454046a3"
     },
     "modules/module4/native-demo/humanbound/prepared-run/.gitignore": {
       "source": "course-production/module4/native-demo-examples/humanbound/prepared-run/.gitignore",
@@ -141,18 +146,18 @@
     },
     "modules/module4/native-demo/promptfoo/promptfooconfig.yaml": {
       "source": "course-production/module4/native-demo-examples/promptfoo/promptfooconfig.yaml",
-      "source_sha256": "c3e771e75d647933c7e3edd78c7aecadc2110f58e4057d79ac24cb8f4f86a607",
-      "dest_sha256": "c3e771e75d647933c7e3edd78c7aecadc2110f58e4057d79ac24cb8f4f86a607"
+      "source_sha256": "4daf59f81811531bf5f720e2c8205f39eab9f52ec8c5d4d05887a1e9193ca205",
+      "dest_sha256": "4daf59f81811531bf5f720e2c8205f39eab9f52ec8c5d4d05887a1e9193ca205"
     },
     "modules/module4/native-demo/pyrit/native_pyrit_demo.py": {
       "source": "course-production/module4/native-demo-examples/pyrit/native_pyrit_demo.py",
-      "source_sha256": "d3185bfdef6fb18c31e71a249a7596ba738bf2f9b509bc8b4b9f042dc76d2020",
-      "dest_sha256": "d3185bfdef6fb18c31e71a249a7596ba738bf2f9b509bc8b4b9f042dc76d2020"
+      "source_sha256": "7ba576dcdf10ccd91bfb6d555e74cbf297fb3fa2436903179f8382cc169be9bb",
+      "dest_sha256": "7ba576dcdf10ccd91bfb6d555e74cbf297fb3fa2436903179f8382cc169be9bb"
     },
     "modules/module4/native-demo/spikee/larkfield_http.py": {
       "source": "course-production/module4/native-demo-examples/spikee/larkfield_http.py",
-      "source_sha256": "af25e74f3009852b2f23a2ea0a07cbdd8426188861e2b7f8479a1ee8dfb43ff4",
-      "dest_sha256": "af25e74f3009852b2f23a2ea0a07cbdd8426188861e2b7f8479a1ee8dfb43ff4"
+      "source_sha256": "1153663c1039c846cb3df98ac67ce3c94cbf70ef9c92402c2c5601849867bb5b",
+      "dest_sha256": "1153663c1039c846cb3df98ac67ce3c94cbf70ef9c92402c2c5601849867bb5b"
     },
     "modules/module4/native-demo/spikee/seeds-larkfield-demo/.gitignore": {
       "source": "course-production/module4/native-demo-examples/spikee/seeds-larkfield-demo/.gitignore",
@@ -186,8 +191,8 @@
     },
     "modules/module6/README.md": {
       "source": "course-production/module6/attendee/README.md",
-      "source_sha256": "7479381d390ddf794d83576e2bf08d014347555e6cdcc077b94dd84aac74ddec",
-      "dest_sha256": "7479381d390ddf794d83576e2bf08d014347555e6cdcc077b94dd84aac74ddec"
+      "source_sha256": "26647485ecc4e371e591487d54052a7198dcbef65703b05c0960f0754ca22213",
+      "dest_sha256": "26647485ecc4e371e591487d54052a7198dcbef65703b05c0960f0754ca22213"
     },
     "modules/module7/MODULE7-SELECTION-HANDOUT.md": {
       "source": "course-production/module7/attendee/MODULE7-SELECTION-HANDOUT.md",
@@ -226,8 +231,8 @@
     },
     "modules/module9/MODULE9-REPORTING-PACK.md": {
       "source": "course-production/module9/attendee/MODULE9-REPORTING-PACK.md",
-      "source_sha256": "5c16b82239debb36a285a1922370ef3c6fe1f57ac36d60401e51d69f8c382785",
-      "dest_sha256": "5c16b82239debb36a285a1922370ef3c6fe1f57ac36d60401e51d69f8c382785"
+      "source_sha256": "16954a58fc5d6420cc55e3b1c486218fbafc02796503ee881c9e745af8ffb3f5",
+      "dest_sha256": "16954a58fc5d6420cc55e3b1c486218fbafc02796503ee881c9e745af8ffb3f5"
     },
     "modules/module9/evidence/C01-deletion-reseed.json": {
       "source": "course-production/module9/attendee/evidence/C01-deletion-reseed.json",
@@ -381,8 +386,8 @@
     },
     "labs/README.md": {
       "source": "labs/README.md",
-      "source_sha256": "bb9bf24d9a74e230dfff73ad7308e39af2f510fe88c8dfe5a326cfb99978fa40",
-      "dest_sha256": "bb9bf24d9a74e230dfff73ad7308e39af2f510fe88c8dfe5a326cfb99978fa40"
+      "source_sha256": "5e7f0cf7adb674b98626f5b65dd4aea36bbb20306f79d50c762fd3853e7b2e4f",
+      "dest_sha256": "5e7f0cf7adb674b98626f5b65dd4aea36bbb20306f79d50c762fd3853e7b2e4f"
     },
     "labs/budget.py": {
       "source": "labs/budget.py",
@@ -396,23 +401,23 @@
     },
     "modules/module4/garak/complete/README.md": {
       "source": "labs/garak/complete/README.md",
-      "source_sha256": "9bd84078478b41c108adfdda269eaff30db10e5cdd0df98831d7a4f3569a56f5",
-      "dest_sha256": "9bd84078478b41c108adfdda269eaff30db10e5cdd0df98831d7a4f3569a56f5"
+      "source_sha256": "2fd28324104e22139c97fa35649f1f4472972bdfc1ecb7d58bffa80977927512",
+      "dest_sha256": "2fd28324104e22139c97fa35649f1f4472972bdfc1ecb7d58bffa80977927512"
     },
     "modules/module4/garak/complete/run.sh": {
       "source": "labs/garak/complete/run.sh",
-      "source_sha256": "44780457958e159a6ff7d312c6dc31ac2a70b1f2fa9f71df7ca60f2b173b576d",
-      "dest_sha256": "44780457958e159a6ff7d312c6dc31ac2a70b1f2fa9f71df7ca60f2b173b576d"
+      "source_sha256": "ed9a1e04e0bc2270b4d8dcadc8c399359f1cefac3f91d090309424d07aa12ef1",
+      "dest_sha256": "ed9a1e04e0bc2270b4d8dcadc8c399359f1cefac3f91d090309424d07aa12ef1"
     },
     "modules/module4/garak/starter/README.md": {
       "source": "labs/garak/starter/README.md",
-      "source_sha256": "540b5863d5faba0309ebf70155e53153fb1056c2be48254a17697fc9e684e8eb",
-      "dest_sha256": "540b5863d5faba0309ebf70155e53153fb1056c2be48254a17697fc9e684e8eb"
+      "source_sha256": "3dc8122f06ac0773bcf0be084fcb0d579734420ca772c6a95b42d928858e4e56",
+      "dest_sha256": "3dc8122f06ac0773bcf0be084fcb0d579734420ca772c6a95b42d928858e4e56"
     },
     "modules/module4/garak/starter/larkfield.json": {
       "source": "labs/garak/starter/larkfield.json",
-      "source_sha256": "e2aa20f9c026b576f0fb67f25c764852fe09034a2a39a8ecc204813ef5e21cb6",
-      "dest_sha256": "e2aa20f9c026b576f0fb67f25c764852fe09034a2a39a8ecc204813ef5e21cb6"
+      "source_sha256": "435c1ed89847cefa8fa514312905ac18a77d6c8c59e65e5ed42c07e285a434e1",
+      "dest_sha256": "435c1ed89847cefa8fa514312905ac18a77d6c8c59e65e5ed42c07e285a434e1"
     },
     "labs/humanbound/complete/README.md": {
       "source": "labs/humanbound/complete/README.md",
@@ -446,18 +451,18 @@
     },
     "modules/module5/m5-attempt/deeper_attempt.py": {
       "source": "labs/m5-attempt/deeper_attempt.py",
-      "source_sha256": "4a590ebad5dbc97dece5af825503dbde28241fa308d733272e434c6d911dff93",
-      "dest_sha256": "4a590ebad5dbc97dece5af825503dbde28241fa308d733272e434c6d911dff93"
+      "source_sha256": "54dccf99df26940ea062331697c7d65e4e5468df23ff9093fe0f73fb6423fc63",
+      "dest_sha256": "54dccf99df26940ea062331697c7d65e4e5468df23ff9093fe0f73fb6423fc63"
     },
     "modules/module5/capstone/COMPARISON-RECORD.md": {
       "source": "labs/m5-capstone/COMPARISON-RECORD.md",
-      "source_sha256": "d3444d001cd4aa1fa94e1a1e242cd72f7dec70262971643dfe56ae1f3d15f478",
-      "dest_sha256": "d3444d001cd4aa1fa94e1a1e242cd72f7dec70262971643dfe56ae1f3d15f478"
+      "source_sha256": "1a09061e3d8f603d728015e3d00ba8d35cfe130d5b521e7cbc19b2c34c5ee5a7",
+      "dest_sha256": "1a09061e3d8f603d728015e3d00ba8d35cfe130d5b521e7cbc19b2c34c5ee5a7"
     },
     "modules/module5/capstone/README.md": {
       "source": "labs/m5-capstone/README.md",
-      "source_sha256": "49484eb9ebb2734520f72b25a9e879543543ee234be228e092e936acf383790d",
-      "dest_sha256": "49484eb9ebb2734520f72b25a9e879543543ee234be228e092e936acf383790d"
+      "source_sha256": "be5924fcf84d64161899f07d48c0a6aa51f73e1d7720dae5a2e63ae330b0ea6c",
+      "dest_sha256": "be5924fcf84d64161899f07d48c0a6aa51f73e1d7720dae5a2e63ae330b0ea6c"
     },
     "modules/module5/capstone/half-a-pyrit/complete.py": {
       "source": "labs/m5-capstone/half-a-pyrit/complete.py",
@@ -486,8 +491,8 @@
     },
     "modules/module5/capstone/humanbound/bot-config.json": {
       "source": "labs/m5-capstone/humanbound/bot-config.json",
-      "source_sha256": "8208e3e1984216f7a788a770b14639f85a455da073c0d5c1ee9696cb7a5a5173",
-      "dest_sha256": "8208e3e1984216f7a788a770b14639f85a455da073c0d5c1ee9696cb7a5a5173"
+      "source_sha256": "8e9b3d1091cab12837b9d0ee3acf643e7b71fca00d0292d1b12ca795d22afcb2",
+      "dest_sha256": "8e9b3d1091cab12837b9d0ee3acf643e7b71fca00d0292d1b12ca795d22afcb2"
     },
     "modules/module5/capstone/humanbound/prepared-run/README.md": {
       "source": "labs/m5-capstone/humanbound/prepared-run/README.md",
@@ -541,13 +546,13 @@
     },
     "modules/module5/promptfoo/crescendo/complete.yaml": {
       "source": "labs/m5-promptfoo/crescendo/complete.yaml",
-      "source_sha256": "7c8cb75a0aaf5561e2a157af75e0cd7ace60af3479b981ccc5a998d15ca48ea6",
-      "dest_sha256": "7c8cb75a0aaf5561e2a157af75e0cd7ace60af3479b981ccc5a998d15ca48ea6"
+      "source_sha256": "ba88940d494916d2f3b452a3e44972a8a7d9f86a1b2f1cfd1981659e65a832ba",
+      "dest_sha256": "ba88940d494916d2f3b452a3e44972a8a7d9f86a1b2f1cfd1981659e65a832ba"
     },
     "modules/module5/promptfoo/crescendo/starter.yaml": {
       "source": "labs/m5-promptfoo/crescendo/starter.yaml",
-      "source_sha256": "26e0c7be691b556ff342a864e4c6f169980cf8e5f0d21c4f8cb5d73a8295582b",
-      "dest_sha256": "26e0c7be691b556ff342a864e4c6f169980cf8e5f0d21c4f8cb5d73a8295582b"
+      "source_sha256": "c269fca6a30b87b65579234df65082ec0dcbead9d91ba1d01968da74fe3c6fc5",
+      "dest_sha256": "c269fca6a30b87b65579234df65082ec0dcbead9d91ba1d01968da74fe3c6fc5"
     },
     "modules/module5/promptfoo/goat/METHOD-NOTE.md": {
       "source": "labs/m5-promptfoo/goat/METHOD-NOTE.md",
@@ -556,13 +561,13 @@
     },
     "modules/module5/promptfoo/jailbreak-tree/complete.yaml": {
       "source": "labs/m5-promptfoo/jailbreak-tree/complete.yaml",
-      "source_sha256": "d10c34016275e4eab99d9302580616eb695b86c46b46af0916d60cff91fed9fe",
-      "dest_sha256": "d10c34016275e4eab99d9302580616eb695b86c46b46af0916d60cff91fed9fe"
+      "source_sha256": "0585a17eb3926ef5a7b75c13123f69383e30192d97d56271473c2a896716ceb9",
+      "dest_sha256": "0585a17eb3926ef5a7b75c13123f69383e30192d97d56271473c2a896716ceb9"
     },
     "modules/module5/promptfoo/jailbreak-tree/starter.yaml": {
       "source": "labs/m5-promptfoo/jailbreak-tree/starter.yaml",
-      "source_sha256": "e55e2b93d9f532649c7737016ea495f8d32b008ae5109cabba02409f299c7359",
-      "dest_sha256": "e55e2b93d9f532649c7737016ea495f8d32b008ae5109cabba02409f299c7359"
+      "source_sha256": "90aba1458c8067079493c8e236f378a052ec0b5484d8bf0bf3a810751d5f997e",
+      "dest_sha256": "90aba1458c8067079493c8e236f378a052ec0b5484d8bf0bf3a810751d5f997e"
     },
     "modules/module5/promptfoo/jailbreak/METHOD-NOTE.md": {
       "source": "labs/m5-promptfoo/jailbreak/METHOD-NOTE.md",
@@ -571,38 +576,38 @@
     },
     "modules/module5/spikee/README.md": {
       "source": "labs/m5-spikee/README.md",
-      "source_sha256": "c941d27c3aea8650a0fbb29b615588229668f8760d5885b5e7e32de441161b14",
-      "dest_sha256": "c941d27c3aea8650a0fbb29b615588229668f8760d5885b5e7e32de441161b14"
+      "source_sha256": "4fd85c3c4294b8c4dc6f6bad4046d6db7290579b9af7492ff2c5073bddbfd38b",
+      "dest_sha256": "4fd85c3c4294b8c4dc6f6bad4046d6db7290579b9af7492ff2c5073bddbfd38b"
     },
     "modules/module5/spikee/crescendo/complete.sh": {
       "source": "labs/m5-spikee/crescendo/complete.sh",
-      "source_sha256": "a38456cfe0a1e339db1995dcfa31f9c360761c011f98cf8194611c05059a4c7e",
-      "dest_sha256": "a38456cfe0a1e339db1995dcfa31f9c360761c011f98cf8194611c05059a4c7e"
+      "source_sha256": "03dee50a8b8cde7e420c7bc85960b6fc7b3c3898cae52efd9be8390b4dc1d394",
+      "dest_sha256": "03dee50a8b8cde7e420c7bc85960b6fc7b3c3898cae52efd9be8390b4dc1d394"
     },
     "modules/module5/spikee/crescendo/starter.sh": {
       "source": "labs/m5-spikee/crescendo/starter.sh",
-      "source_sha256": "94a909e5dd8573295c802e95f99eb215ce6dc3e1180bdaecf49ae9395bacbf7a",
-      "dest_sha256": "94a909e5dd8573295c802e95f99eb215ce6dc3e1180bdaecf49ae9395bacbf7a"
+      "source_sha256": "a9d04057ee66761cb4d3f5661dddf0393c680458fd55558f491640e72999ae97",
+      "dest_sha256": "a9d04057ee66761cb4d3f5661dddf0393c680458fd55558f491640e72999ae97"
     },
     "modules/module5/spikee/goat/complete.sh": {
       "source": "labs/m5-spikee/goat/complete.sh",
-      "source_sha256": "fb80b4af7263ffc43ab5936b02d26f0ee6820680811ca869aaf15639d00781ba",
-      "dest_sha256": "fb80b4af7263ffc43ab5936b02d26f0ee6820680811ca869aaf15639d00781ba"
+      "source_sha256": "54e1e17b77b573ec7e07840a6f386815b271ccef777c3cdf4d24f353055b5603",
+      "dest_sha256": "54e1e17b77b573ec7e07840a6f386815b271ccef777c3cdf4d24f353055b5603"
     },
     "modules/module5/spikee/goat/starter.sh": {
       "source": "labs/m5-spikee/goat/starter.sh",
-      "source_sha256": "4610ab8ee0cc9984e37a4165b23710e9e61f78158f2a2bace562bc9cfa61dfae",
-      "dest_sha256": "4610ab8ee0cc9984e37a4165b23710e9e61f78158f2a2bace562bc9cfa61dfae"
+      "source_sha256": "1e09cfa66d1e1a16eea9d1b8476453480e407e38e1490970293740e8312d6a26",
+      "dest_sha256": "1e09cfa66d1e1a16eea9d1b8476453480e407e38e1490970293740e8312d6a26"
     },
     "modules/module5/spikee/iterative/complete.sh": {
       "source": "labs/m5-spikee/iterative/complete.sh",
-      "source_sha256": "22fd38368eed51c24edbd55517ea44825ea25876295fcadc1522a113deab31ef",
-      "dest_sha256": "22fd38368eed51c24edbd55517ea44825ea25876295fcadc1522a113deab31ef"
+      "source_sha256": "f8d9820ba5adca86f273be57cac84d9f8bf144a9f5b2ce58960acadca17abb11",
+      "dest_sha256": "f8d9820ba5adca86f273be57cac84d9f8bf144a9f5b2ce58960acadca17abb11"
     },
     "modules/module5/spikee/iterative/starter.sh": {
       "source": "labs/m5-spikee/iterative/starter.sh",
-      "source_sha256": "822f8afff182764b97e761dde9bf34bb1aba8fda1df558cf56cff46f12891d10",
-      "dest_sha256": "822f8afff182764b97e761dde9bf34bb1aba8fda1df558cf56cff46f12891d10"
+      "source_sha256": "317719ebf85b2c97ea07821f5cf4ab8019041621cb780d941254a9b1a1ff390a",
+      "dest_sha256": "317719ebf85b2c97ea07821f5cf4ab8019041621cb780d941254a9b1a1ff390a"
     },
     "modules/module5/spikee/seeds-pii/base_user_inputs.jsonl": {
       "source": "labs/m5-spikee/seeds-pii/base_user_inputs.jsonl",
@@ -666,8 +671,8 @@
     },
     "modules/module6/m6-attacker-eval/attacker_eval.py": {
       "source": "labs/m6-attacker-eval/attacker_eval.py",
-      "source_sha256": "cfd5ea7e8f7df3856b4b5dc80354ae176d6ffd630ccb6e4e58b7471c05a32a11",
-      "dest_sha256": "cfd5ea7e8f7df3856b4b5dc80354ae176d6ffd630ccb6e4e58b7471c05a32a11"
+      "source_sha256": "4245568566084fa68a40cca3e8450515e5fb66307654a70fd5375ee4638d2667",
+      "dest_sha256": "4245568566084fa68a40cca3e8450515e5fb66307654a70fd5375ee4638d2667"
     },
     "modules/module6/m6-attacker-eval/fixtures/brief.txt": {
       "source": "labs/m6-attacker-eval/fixtures/brief.txt",
@@ -741,33 +746,33 @@
     },
     "modules/module4/promptfoo/complete/README.md": {
       "source": "labs/promptfoo/complete/README.md",
-      "source_sha256": "9a156d1255cf8f0055cc3cefc2833bca76a8c695914bd1503da417fb70136c14",
-      "dest_sha256": "9a156d1255cf8f0055cc3cefc2833bca76a8c695914bd1503da417fb70136c14"
+      "source_sha256": "5b3e1e51c16213befa8623ff55c1043e7cbfde636adb4b5f458a1489c95942fa",
+      "dest_sha256": "5b3e1e51c16213befa8623ff55c1043e7cbfde636adb4b5f458a1489c95942fa"
     },
     "modules/module4/promptfoo/complete/delete.yaml": {
       "source": "labs/promptfoo/complete/delete.yaml",
-      "source_sha256": "87f088e74575529bc078ce28d85dd0b2ec36e16c4e4bca37b3914378b1319c31",
-      "dest_sha256": "87f088e74575529bc078ce28d85dd0b2ec36e16c4e4bca37b3914378b1319c31"
+      "source_sha256": "bb4703d901373fa469a101df03b3c3394c47b0a287ebe0da6e12ace27b70ad1f",
+      "dest_sha256": "bb4703d901373fa469a101df03b3c3394c47b0a287ebe0da6e12ace27b70ad1f"
     },
     "modules/module4/promptfoo/complete/promptfooconfig.yaml": {
       "source": "labs/promptfoo/complete/promptfooconfig.yaml",
-      "source_sha256": "20e90fd5e70483393a6ef27230eae56b11cd444ea43e54da0344643e9aaf9e7d",
-      "dest_sha256": "20e90fd5e70483393a6ef27230eae56b11cd444ea43e54da0344643e9aaf9e7d"
+      "source_sha256": "949f884c38eb533fd1a945dfcfff8736fea67a5b6d01a6ba59a3305db64250c1",
+      "dest_sha256": "949f884c38eb533fd1a945dfcfff8736fea67a5b6d01a6ba59a3305db64250c1"
     },
     "modules/module4/promptfoo/starter/README.md": {
       "source": "labs/promptfoo/starter/README.md",
-      "source_sha256": "d403e6b900e30fca9f0ba25e294ecfd561aa1473f124fa21cf2131bd36d66681",
-      "dest_sha256": "d403e6b900e30fca9f0ba25e294ecfd561aa1473f124fa21cf2131bd36d66681"
+      "source_sha256": "a2e08b56f3261c5d754e0ad9aab487acdc6e6a2e6f8681e5f00ce33635e0e6c3",
+      "dest_sha256": "a2e08b56f3261c5d754e0ad9aab487acdc6e6a2e6f8681e5f00ce33635e0e6c3"
     },
     "modules/module4/promptfoo/starter/promptfooconfig.yaml": {
       "source": "labs/promptfoo/starter/promptfooconfig.yaml",
-      "source_sha256": "183c910e8605ba095f838ceda80d7635053ed09304aeff5519e6eb2eb500ab0f",
-      "dest_sha256": "183c910e8605ba095f838ceda80d7635053ed09304aeff5519e6eb2eb500ab0f"
+      "source_sha256": "77ccbd032dac98a1f4a03cca4bbffa1524af0405522fc9535b34c4d091aebc09",
+      "dest_sha256": "77ccbd032dac98a1f4a03cca4bbffa1524af0405522fc9535b34c4d091aebc09"
     },
     "modules/module5/pyrit/EXPLORE-FURTHER.md": {
       "source": "labs/pyrit/EXPLORE-FURTHER.md",
-      "source_sha256": "156b6a41ec2143cf0818ca8b718b26ffb33c64760f7d0a3053bdb948b416047b",
-      "dest_sha256": "156b6a41ec2143cf0818ca8b718b26ffb33c64760f7d0a3053bdb948b416047b"
+      "source_sha256": "c0e48ff955d19d615f1e3702ab3f2a26f5c0c762f598b489dd7b8d096b530500",
+      "dest_sha256": "c0e48ff955d19d615f1e3702ab3f2a26f5c0c762f598b489dd7b8d096b530500"
     },
     "modules/module5/pyrit/README.md": {
       "source": "labs/pyrit/README.md",
@@ -776,8 +781,8 @@
     },
     "modules/module5/pyrit/_common.py": {
       "source": "labs/pyrit/_common.py",
-      "source_sha256": "2bfdc120a4a3f61edf421c67f105394f54b52b5cb0bac3e6184eff473a8fb883",
-      "dest_sha256": "2bfdc120a4a3f61edf421c67f105394f54b52b5cb0bac3e6184eff473a8fb883"
+      "source_sha256": "1c224e6a9daca74e3f8f7c4f3a4f29a71829d4e1c829bc6a71f8a60de959a521",
+      "dest_sha256": "1c224e6a9daca74e3f8f7c4f3a4f29a71829d4e1c829bc6a71f8a60de959a521"
     },
     "modules/module5/pyrit/crescendo/complete.py": {
       "source": "labs/pyrit/crescendo/complete.py",
@@ -816,8 +821,8 @@
     },
     "modules/module5/pyrit/reference/attack.py": {
       "source": "labs/pyrit/reference/attack.py",
-      "source_sha256": "41ee3704e86fc009e311afc5e748a6c25b6b431b5c6cc9dacdff3c5d47e8dddb",
-      "dest_sha256": "41ee3704e86fc009e311afc5e748a6c25b6b431b5c6cc9dacdff3c5d47e8dddb"
+      "source_sha256": "5a1a1674fa783e988d365950b38d67ed42f448f4432fd0bc2af1061d0336786b",
+      "dest_sha256": "5a1a1674fa783e988d365950b38d67ed42f448f4432fd0bc2af1061d0336786b"
     },
     "modules/module5/pyrit/single/complete.py": {
       "source": "labs/pyrit/single/complete.py",
@@ -876,8 +881,8 @@
     },
     "modules/module4/spikee/complete/README.md": {
       "source": "labs/spikee/complete/README.md",
-      "source_sha256": "c679f99f771a49edf8785844e34747028323ec525d0dc2d36576afda3f6573a5",
-      "dest_sha256": "c679f99f771a49edf8785844e34747028323ec525d0dc2d36576afda3f6573a5"
+      "source_sha256": "fd7b5de2f78d11e22da6b8fab87ffc00b4cc6fb2ebfb0bfa8ec780bff4a61178",
+      "dest_sha256": "fd7b5de2f78d11e22da6b8fab87ffc00b4cc6fb2ebfb0bfa8ec780bff4a61178"
     },
     "modules/module4/spikee/complete/judges/airt_flags.py": {
       "source": "labs/spikee/complete/judges/airt_flags.py",
@@ -891,8 +896,8 @@
     },
     "modules/module4/spikee/complete/run-destructive.sh": {
       "source": "labs/spikee/complete/run-destructive.sh",
-      "source_sha256": "451e78541f6c9cb02eced4aa55e8ad7a57d02d9e8ccde9e3b5b99e437fce9b38",
-      "dest_sha256": "451e78541f6c9cb02eced4aa55e8ad7a57d02d9e8ccde9e3b5b99e437fce9b38"
+      "source_sha256": "832abadf63282bdbfa968bdc86edae7882780f0e19cd074d7ca1e53ead22aaa2",
+      "dest_sha256": "832abadf63282bdbfa968bdc86edae7882780f0e19cd074d7ca1e53ead22aaa2"
     },
     "modules/module4/spikee/complete/seeds-goat/goat-dataset.jsonl": {
       "source": "labs/spikee/complete/seeds-goat/goat-dataset.jsonl",
@@ -911,18 +916,18 @@
     },
     "modules/module4/spikee/complete/targets/larkfield_mt.py": {
       "source": "labs/spikee/complete/targets/larkfield_mt.py",
-      "source_sha256": "bf0a87e217d40beb6d443d69468b28cdff83dbcd08b756d23b553cb7b2b87db7",
-      "dest_sha256": "bf0a87e217d40beb6d443d69468b28cdff83dbcd08b756d23b553cb7b2b87db7"
+      "source_sha256": "07566a1f1df23684b278c4dbfc07261fc0eabdd400f749da38cdc5dcebda5b91",
+      "dest_sha256": "07566a1f1df23684b278c4dbfc07261fc0eabdd400f749da38cdc5dcebda5b91"
     },
     "modules/module4/spikee/starter/README.md": {
       "source": "labs/spikee/starter/README.md",
-      "source_sha256": "a9bf98f21658c2b88e3ad11ebbe88d46b1073063c1b1e25bfc621c9ccf31b662",
-      "dest_sha256": "a9bf98f21658c2b88e3ad11ebbe88d46b1073063c1b1e25bfc621c9ccf31b662"
+      "source_sha256": "86e32ce6aa86e0faee2889d91f7928e0ed7f83ec0bcbb8d6937d31800dcf34f7",
+      "dest_sha256": "86e32ce6aa86e0faee2889d91f7928e0ed7f83ec0bcbb8d6937d31800dcf34f7"
     },
     "modules/module4/spikee/starter/targets/larkfield.py": {
       "source": "labs/spikee/starter/targets/larkfield.py",
-      "source_sha256": "32e98307fb98b06f4993a62684b7a9d944ca1afd1b6c1d77b4055e5d6de541a5",
-      "dest_sha256": "32e98307fb98b06f4993a62684b7a9d944ca1afd1b6c1d77b4055e5d6de541a5"
+      "source_sha256": "26845adb1344341045dc73922adf21117cf2839e5647f5f1621b27d24e7fb39b",
+      "dest_sha256": "26845adb1344341045dc73922adf21117cf2839e5647f5f1621b27d24e7fb39b"
     },
     "models.yaml": {
       "source": "models.student.yaml",
@@ -968,8 +973,8 @@
     },
     "modules/module5/COST-NOTE.md": {
       "source": "course-production/module5/MODULE5-COST-NOTE.md",
-      "source_sha256": "d19580208acaa8bd303b5b1be490a33dbf38a3065c98ea6d739a1acc6a701e9c",
-      "dest_sha256": "d19580208acaa8bd303b5b1be490a33dbf38a3065c98ea6d739a1acc6a701e9c"
+      "source_sha256": "672c4186360adac4dbec883e683c7b44bed0673fe85871d8f12f2645acad52c7",
+      "dest_sha256": "672c4186360adac4dbec883e683c7b44bed0673fe85871d8f12f2645acad52c7"
     },
     "modules/module7/selection-INSTRUCTOR-ANSWERS.md": {
       "source": "course-production/module7/instructor/MODULE7-SELECTION-ANSWERS.md",

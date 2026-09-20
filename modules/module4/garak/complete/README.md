@@ -2,18 +2,23 @@
 
 ```bash
 bash modules/module4/garak/complete/run.sh quick     # ~1 min, proves the plumbing
-bash modules/module4/garak/complete/run.sh           # both postures, five probe families
+bash modules/module4/garak/complete/run.sh           # full set against the CURRENT posture (neutral)
+# then restart the target hardened (same :8089, same model — see the starter README) and:
+POSTURE=hardened bash modules/module4/garak/complete/run.sh
 ```
 
 The runner calls the VM's `garak` launcher (its own environment), writes a full
 log per run, and **stops if a scan fails** rather than printing "reports" over a
-crash. Reports are written to `out/` as `.jsonl` and `.html`. Target is the Larkfield
-level ladder — neutral `:8081`, hardened `:8083`.
+crash. Each run writes to `out/<tag>-<posture>*` (`.jsonl` + `.html`), so the
+neutral and hardened runs are kept **side by side, not overwritten**. Target is the
+one Larkfield on `:8089`; the hardened posture is the **same target restarted with
+the hardened prompt** (no new port).
 
 ## The finding to look for
 
-Run the full set against both postures and read the reports **per probe**, not by
-the aggregate. You may see the aggregate fall from neutral to hardened, so the
+Run the full set against each posture (neutral, then hardened) and read the reports
+**per probe**, not by the aggregate. You may see the aggregate fall from neutral to
+hardened, so the
 hardening looks like a win — or you may not; that is for your reports to say. The
 point of the lab holds either way: an **aggregate score can hide a per-objective
 result that did not move**, so look for one and name it, from your own reports.

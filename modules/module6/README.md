@@ -10,9 +10,9 @@ scores must belong to the batch you just produced.
 
 ## Your target and models
 
-- **Target:** neutral Larkfield at `http://localhost:8081` (the L1 lab route; the
-  script appends `/chat`). This is **not** the ordinary VM launcher — use the endpoint
-  on your setup sheet.
+- **Target:** neutral Larkfield at `http://localhost:8089` (the script appends `/chat`) —
+  the same target and port as Modules 1–2 (`airt-target larkfield`). Use the endpoint on
+  your setup sheet if it differs.
 - **Model group:** choose your two-attacker group before running. Use
   `export AIRT_GROUP=openai` for your OpenAI key, or `export AIRT_GROUP=bedrock` for the
   Bedrock route. Offline needs no group.

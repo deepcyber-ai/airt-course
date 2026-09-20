@@ -56,5 +56,5 @@ PYV
 spikee generate --seed-folder "$SEEDS" --format user-input --include-standalone-inputs --tag m5crescendos
 DS=$(ls -t datasets/*m5crescendos*.jsonl | head -1)
 AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-eu-west-2}" \
-spikee test --dataset "$DS" --target larkfield_mt --target-options port=8081 \
+spikee test --dataset "$DS" --target larkfield_mt --target-options port=8089 \
   --attack crescendo --attack-only --attack-options model="$SPIKEE_ATTACKER" --threads 1

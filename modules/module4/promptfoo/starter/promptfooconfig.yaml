@@ -14,14 +14,13 @@ providers:
   - id: https
     label: larkfield-neutral
     config:
-      # L1 (neutral) from labs-ctf/start-levels.sh — target :8081, its MCP tool
+      # Larkfield neutral on :8089 (airt-target larkfield). Its MCP tool
       # server on :8221. Neutral is the participant baseline; the assistant is
       # not coached to misbehave, so a single probe may well be refused — that is
-      # a valid result to record. For the hardened comparison, point at L3 :8083
-      # (change the label too, so the two runs are not both "neutral"):
-      #     sed -e 's/8081/8083/' -e 's/larkfield-neutral/larkfield-hardened/' \
-      #         promptfooconfig.yaml > hardened.yaml
-      url: http://localhost:8081/chat
+      # a valid result to record. For the hardened comparison, restart the target
+      # with the hardened prompt (same :8089), change the label below so the two
+      # runs are not both "neutral", and re-run — see the README.
+      url: http://localhost:8089/chat
       method: POST
       headers:
         Content-Type: application/json
@@ -99,7 +98,7 @@ tests:
   #         a follow-up read. This CHANGES the database, so run destructive
   #         attempts SERIALLY on your assigned isolated instance, and restore
   #         before each attempt and each repeat:
-  #             curl -s -X POST http://localhost:8081/session/reset -d '{"all": true}'
+  #             curl -s -X POST http://localhost:8089/session/reset -d '{"all": true}'
   #         Check the reset actually succeeded (it restores the data and clears the
   #         scorer state) and confirm the record is back before you try again.
   #

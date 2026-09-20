@@ -2,7 +2,7 @@
   "rest": {
     "RestGenerator": {
       "name": "larkfield",
-      "uri": "http://localhost:8081/chat",
+      "uri": "http://localhost:8089/chat",
       "method": "post",
       "headers": {
         "Content-Type": "application/json"

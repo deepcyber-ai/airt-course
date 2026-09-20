@@ -1,13 +1,13 @@
 {
   "thread_init": {
-    "endpoint": "http://localhost:8081/session/new",
+    "endpoint": "http://localhost:8089/session/new",
     "headers": {
       "Content-Type": "application/json"
     },
     "payload": {}
   },
   "chat_completion": {
-    "endpoint": "http://localhost:8081/chat",
+    "endpoint": "http://localhost:8089/chat",
     "headers": {
       "Content-Type": "application/json",
       "x-session-id": "$session_id"

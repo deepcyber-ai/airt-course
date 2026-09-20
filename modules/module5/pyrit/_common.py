@@ -29,7 +29,7 @@ if _root and _root not in sys.path:
 from labs.flags import flags_in                                          # noqa: E402
 from labs.models import resolve, attacker_target, describe               # noqa: E402
 
-TARGET = "http://localhost:8081"        # Larkfield L1 neutral (L3 hardened is :8083)
+TARGET = "http://localhost:8089"        # Larkfield (airt-target larkfield); hardened = restart with the hardened prompt, same port
 MARKER = "OWASP{"                        # broad prefix — matches ANY configured flag
 # The exact cross-customer PII flag name — the objective every complete aims at, so
 # the automatic stopping check fires on THAT, not on any collateral flag.

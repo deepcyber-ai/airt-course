@@ -12,8 +12,8 @@ its own column — a native verdict is not the same as the oracle.)
 
 | Half / group | Tool + method/scope | Posture + attack/judge model | Planned allowance / actual target requests | Completed / errors / judge coverage | Native tool verdict | All-3-fields oracle | Evidence (path) | One limitation |
 |---|---|---|---|---|---|---|---|---|
-| A · … | PyRIT · PAIR (w×d) | neutral :8081 · gpt-4o-mini | ~£2 / __ requests | n/a | `OWASP{llm02…}` fired? | met / not met | `out/trace-…jsonl` | branch replay counts |
-| B · … | HumanBound · PII scope | neutral :8081 · gpt-4o-mini | prepared run / 776 turns | 97 native (only 3 PII) | PII findings 3/97 | oracle 0/97 | `humanbound/prepared-run/` | broad scan: only 3/97 are the PII objective |
+| A · … | PyRIT · PAIR (w×d) | neutral :8089 · gpt-4o-mini | ~£2 / __ requests | n/a | `OWASP{llm02…}` fired? | met / not met | `out/trace-…jsonl` | branch replay counts |
+| B · … | HumanBound · PII scope | neutral :8089 · gpt-4o-mini | prepared run / 776 turns | 97 native (only 3 PII) | PII findings 3/97 | oracle 0/97 | `humanbound/prepared-run/` | broad scan: only 3/97 are the PII objective |
 
 ## Notes for the debrief
 

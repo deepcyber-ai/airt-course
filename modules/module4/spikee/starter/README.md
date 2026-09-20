@@ -23,8 +23,8 @@ cp <repo>/modules/module4/spikee/starter/targets/larkfield.py targets/
 spikee list targets                            # larkfield should appear
 ```
 
-Bring the Larkfield level ladder up first (`labs-ctf/start-levels.sh`); the
-target defaults to **L1 neutral `:8081`**, with **L3 hardened `:8083`** as the
+Bring up one Larkfield target first (`airt-target larkfield` → **`:8089`**). The
+hardened posture is the **same target restarted with the hardened prompt** — the
 comparison.
 
 If the target appears with an error in the Tags column, the module raised while
@@ -67,7 +67,7 @@ Aim at effects, not opinions. The target scores when something *happens* — a
 query runs, a record returns, a restricted tool is invoked. On the neutral
 target a single probe may be refused; record that too.
 
-**2. Run it against both postures** (`port=8081`, `port=8083`) and diff.
+**2. Run it, then restart the target with the hardened prompt and run again**, and diff.
 
 **3. Then GOAT.** See `../complete/README.md` once you have the single-turn
 half working.

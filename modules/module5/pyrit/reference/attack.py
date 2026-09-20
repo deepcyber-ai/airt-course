@@ -19,7 +19,7 @@ Five stages, in the order they should be run:
 Against Larkfield instead of Money Agent, pass the target and its marker:
 
     python3 modules/module5/pyrit/reference/attack.py --stage tap \\
-        --url http://localhost:8083 --marker 'OWASP{'
+        --url http://localhost:8089 --marker 'OWASP{'
 
 The marker is what the objective scorer matches on. Get it wrong and every
 attack runs its full turn budget and reports nothing, which is indis-

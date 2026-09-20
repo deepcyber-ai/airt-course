@@ -1,6 +1,6 @@
 # Native tool demonstration examples
 
-These are the runnable artefacts for the four Module 4 tool tracks. Follow the common Module 4 page (`../README.md`) for the assigned track, objective and setup. They assume an already running Larkfield neutral target at `http://localhost:8081/chat` and the pinned course tools.
+These are the runnable artefacts for the four Module 4 tool tracks. Follow the common Module 4 page (`../README.md`) for the assigned track, objective and setup. They assume an already running Larkfield neutral target at `http://localhost:8089/chat` and the pinned course tools.
 
 | File | Purpose |
 |---|---|

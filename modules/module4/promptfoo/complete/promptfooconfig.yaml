@@ -15,11 +15,9 @@
 # unattended at promptfoo's default concurrency. The destructive DELETE probe is
 # run SEPARATELY and serially, with a reset each time — see the README.
 #
-# Run it against both postures and compare (change the label too, so the two
-# runs are not both "neutral"):
-#     sed -e 's/8081/8083/' -e 's/larkfield-neutral/larkfield-hardened/' \
-#         promptfooconfig.yaml > hardened.yaml
-#     npx promptfoo@0.123.0 eval -c hardened.yaml --no-cache
+# Run it against both postures and compare: restart the target with the hardened
+# prompt (same :8089), change the label below so the two runs are not both
+# "neutral", and re-run the SAME config into a separate results dir — see the README.
 
 description: "Larkfield — single-turn probes, complete (non-mutating batch)"
 
@@ -27,9 +25,9 @@ providers:
   - id: https
     label: larkfield-neutral
     config:
-      # L1 (neutral) from labs-ctf/start-levels.sh — target :8081, MCP :8221.
-      # Neutral is the participant baseline; L3 :8083 is the hardened comparison.
-      url: http://localhost:8081/chat
+      # Larkfield neutral on :8089 (airt-target larkfield).
+      # Neutral is the baseline; restart with the hardened prompt for the comparison.
+      url: http://localhost:8089/chat
       method: POST
       headers:
         Content-Type: application/json

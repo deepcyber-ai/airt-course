@@ -6,8 +6,8 @@ tricks, prompt injection families, data leakage.
 
 Garak needs no attacker model. Its prompts are static and most of its detectors
 are rules or small classifiers, so **this lab has no attacker/judge-model
-charge** beyond the target's own inference. Bring the Larkfield level ladder up
-first (`labs-ctf/start-levels.sh`).
+charge** beyond the target's own inference. Bring up one Larkfield target first
+(`airt-target larkfield` → `:8089`).
 
 > garak is installed in its **own environment** on the course VM and is on PATH
 > as **`garak`** — not `python3 -m garak` in the main course Python. Use `garak`.
@@ -64,11 +64,21 @@ Start with these; each takes a few minutes:
 | `latentinjection` | a synthetic document + instruction, sent as ONE user prompt |
 | `leakreplay` | coaxing out memorised or configured text |
 
-Neutral is `localhost:8081` (L1), hardened is `localhost:8083` (L3). Copy the
-config and change the port:
+The target is `localhost:8089`. The posture is only the system prompt, so to
+compare the hardened target you **restart the same target with the hardened
+prompt** — same port, no second config. Keep the **same target model** for the
+comparison, and use the launcher's **absolute** prompt path (the exported lab
+folder has no `profiles/`):
 
 ```bash
-sed 's/8081/8083/' larkfield.json > larkfield-hardened.json
+airt-target stop larkfield
+airt-target larkfield --system-prompt /opt/airt/src/airt_harness/profiles/deepcyber-ctf/mock/system_prompt_hardened.txt
+```
+Re-run garak against `:8089` (into a **separate** output dir — see the runner) and
+diff the two report sets. **When you are done, restart the neutral target** before
+any lab that expects neutral:
+```bash
+airt-target stop larkfield && airt-target larkfield
 ```
 
 **2. Diff the two reports, per probe.** Garak may show a drop from neutral to

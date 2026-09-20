@@ -8,7 +8,7 @@ npx promptfoo@0.123.0 view
 
 Everything is in `promptfooconfig.yaml`, comments included. Three TODOs at the
 bottom of that file are the exercise. The target is Larkfield **L1 neutral**
-(`:8081`) — bring the level ladder up first with `labs-ctf/start-levels.sh`.
+(`:8089`) — bring it up with `airt-target larkfield`.
 
 **No grader-model charge.** Assertions match on the target's own flag markers
 (`OWASP{...}`), which are deterministic, so no grader model is involved.

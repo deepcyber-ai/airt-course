@@ -48,7 +48,7 @@ class LarkfieldMultiTurnTarget(Target):
         )
 
     def get_available_option_values(self) -> ModuleOptionsHint:
-        return ["port=8081", "port=8083"], False
+        return ["port=8089"], False
 
     def _harness_session(self, spikee_session_id: Optional[str], port: str) -> str:
         """One harness conversation per spikee conversation.
@@ -73,7 +73,7 @@ class LarkfieldMultiTurnTarget(Target):
         target_options: Optional[str] = None,
         spikee_session_id: Optional[str] = None,
     ):
-        port = "8081"
+        port = "8089"
         if target_options and "port=" in target_options:
             port = target_options.split("port=", 1)[1].split(",")[0].strip()
 

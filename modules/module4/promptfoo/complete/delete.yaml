@@ -13,7 +13,7 @@ providers:
   - id: https
     label: larkfield-neutral
     config:
-      url: http://localhost:8081/chat      # match the posture you are testing (:8083 hardened)
+      url: http://localhost:8089/chat      # the target's current posture (restart with the hardened prompt to compare)
       method: POST
       headers:
         Content-Type: application/json

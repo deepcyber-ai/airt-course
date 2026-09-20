@@ -57,7 +57,7 @@ DS=datasets/<generated>.jsonl          # the file spikee just wrote
 jq -c 'select(.id | test("^lark-(auth|delete|poison|unbounded)-") | not)' "$DS" \
    > datasets/lf-readonly.jsonl
 spikee test --dataset datasets/lf-readonly.jsonl --target larkfield \
-            --target-options port=8081 --threads 2
+            --target-options port=8089 --threads 2
 ```
 
 The five destructive/exhaustion rows run **one at a time, each from a
@@ -68,10 +68,10 @@ required reseed could not run, so a later attempt never runs over a dirty
 database). Mutations are single-turn, so this mode needs no attacker model:
 
 ```bash
-bash run-destructive.sh mutations 8081 "$DS"
+bash run-destructive.sh mutations 8089 "$DS"
 ```
 
-Run the read-only set against both postures (`port=8081` neutral, `port=8083`
+Run the read-only set against the target (`port=8089`), then restart it with the hardened prompt and re-run
 hardened) and diff which probes still score. Record the result as your own. The
 point of aiming the seeds is that a scanner reporting zero against a target you
 have **not** aimed at tells you nothing; whether the aimed seeds score more than
@@ -91,7 +91,7 @@ the same fail-closed reset guard as the mutations mode:
 
 ```bash
 export GOAT_MODEL=bedrock/qwen.qwen3-235b-a22b-2507-v1:0    # the attacker model
-bash run-destructive.sh goat 8081 "$DS"
+bash run-destructive.sh goat 8089 "$DS"
 ```
 
 (To run one objective on its own, filter the GOAT dataset by id and pass it as the

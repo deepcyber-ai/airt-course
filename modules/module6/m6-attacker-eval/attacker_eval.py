@@ -180,7 +180,10 @@ def main():
     effective_pair = pair if live else [saved["attackers"][0]["name"],
                                         saved["attackers"][1]["name"]]
     tgt = saved["target"]
-    url = a.url or tgt["url"]
+    # Live hits neutral Larkfield on :8089 (airt-target larkfield) — the same target
+    # and port as Modules 1-2. Offline replays the saved fixture, which records where
+    # it originally ran (its own url), so only override the live default here.
+    url = a.url or ("http://localhost:8089" if live else tgt["url"])
     src_label = "LIVE" if live else "SAVED EXAMPLE (offline)"
     n_cand = saved.get("candidates_per_attacker", 3)
 
