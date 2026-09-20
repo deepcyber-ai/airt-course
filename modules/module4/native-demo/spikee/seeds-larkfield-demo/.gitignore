@@ -1,0 +1,6 @@
+# Ship these Spikee demo seeds — the root *.jsonl ignore would otherwise drop them,
+# and the export builds from a clean checkout (tracked files only). (M4-02)
+!base_user_inputs.jsonl
+!instructions.jsonl
+!jailbreaks.jsonl
+!standalone_user_inputs.jsonl

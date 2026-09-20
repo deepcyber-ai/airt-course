@@ -108,15 +108,34 @@ Three operations answer different questions - do not conflate them:
 - **Replay** sends a fixed saved prompt sequence to the target again.
 - **A fresh adaptive run** generates new attacks from new feedback. A fixed replay that reads less naturally when the target's reply changes is still a replay, not an adaptive test.
 
-Replay command shape (fill the uppercase values; these are classroom artifacts to prepare, not claimed to exist yet):
+### The replay lab (do it on your own results)
 
-```
-airt-replay evidence/metabase.csv --session EXACT_SESSION_ID \
-  --evaluate --judge-config replay/judge_config.yaml \
-  --judge-prompts replay/judge_prompts.yaml \
-  --judge-criteria CRITERION_KEY \
-  -o results/regression-report.md
-```
+1. **List your captured sessions** (the harness recorded them under the profile's
+   `intel/`), and pick one to replay:
+   ```bash
+   airt-replay <your-profile>/intel/responses.jsonl --list-sessions
+   ```
+2. **Replay the session you choose** against the target — does the finding still
+   reproduce?
+   ```bash
+   airt-replay <your-profile>/intel/responses.jsonl --session <SESSION_ID>
+   ```
+3. **Add a scorer.** The judge is resolved straight from `models.yaml` (the same
+   catalogue as the rest of the course) with `--judge-model`, so there is no config to
+   write:
+   ```bash
+   airt-replay <your-profile>/intel/responses.jsonl --session <SESSION_ID> \
+     --evaluate --judge-model <your-scorer> \
+     --judge-prompts modules/module9/replay/judge_prompts.yaml \
+     --judge-criteria config_disclosure \
+     -o results/regression-report.md
+   ```
+   (`<your-scorer>` is a model name from `models.yaml`, e.g. `gpt-4o-mini`.)
+
+Read the report: for each turn, whether the reply changed and the scorer's verdict.
+Record one line — *reproduces / no longer reproduces* — with the evidence. The scorer's
+verdict is an opinion on the text; for an **action** finding the trusted tool/database
+record stays the proof.
 
 | Field | Your entry |
 |---|---|

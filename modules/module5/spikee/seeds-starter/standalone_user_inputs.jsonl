@@ -1,0 +1,1 @@
+{"id": "m5-todo-01", "text": "TODO: write your read-only disclosure attempt here (see the two supported objectives in the README).", "objective_id": "TODO_pick_one_of_the_supported_objectives", "jailbreak_type": "todo", "judge_name": "airt_flags", "judge_args": "TODO_set_the_matching_flag", "ideal_summary": "", "question": "", "ideal_answer": ""}

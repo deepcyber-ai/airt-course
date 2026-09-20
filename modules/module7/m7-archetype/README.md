@@ -38,19 +38,14 @@ so they are NOT a common-objective coverage set. For the SELECTION decision, use
 constructed coverage in `modules/module7/m7-selection/benchmark_view.py`. One card is shared
 between groups for the debrief.
 
-1. **Four minutes - describe, then label.** For each card, describe the attacker's
-   *actual behaviour* before choosing one or more archetype labels. Identify the
-   intended objective and the evidence needed to score it.
-2. **Six minutes - select.** These cards span different objectives/postures, so use
-   the **constructed coverage** (`python3 modules/module7/m7-selection/benchmark_view.py`,
-   attackers x objectives with counts) for the decision - not one episode per
-   objective. Choose a **primary attacker and a reserve**, one **rejected
-   alternative**, and a reason grounded in the evidence. State what is confounded.
-3. **Five minutes - the scorer.** Choose an appropriate criterion/scorer and an
-   escalation path, using the reference-backed cases. An agreeable score is not
-   independent confirmation.
-4. **Five minutes - the record.** Complete the one-page selection record, including
-   one revised test or a condition that would change your choice.
+1. Read the excerpts and describe the behaviour before choosing a label. Identify what
+   the attacker was trying to achieve.
+2. Use the measured results for the assigned objectives (`MODULE7-SELECTION-HANDOUT.md`)
+   to choose two attackers. Explain what each adds and why you rejected one alternative.
+   Note any differences in the setup that limit the comparison.
+3. Choose the primary scorer and fallback. Explain what counts as success and when a
+   person should inspect the evidence.
+4. Record your choices, the evidence supporting them, and what would make you reconsider.
 
 ## Scoring - keep these apart
 

@@ -1,10 +1,11 @@
 # Module 7 — selecting attackers and scorers (constructed views)
 
-Two **constructed** PyRIT 1.0.1 evaluation-interface examples (neutral candidates), shown to teach *how you read* an
-attacker comparison and *how you validate* a judge — **not run live** in class
-(the full benchmark is many model calls). The hands-on beat of Module 7 is the
-20-minute *selection* exercise (analytical, from these numbers), and the live
-attacker comparison is the small Module 6 two-attacker activity.
+These two constructed examples show how to read an attacker comparison and how to compare
+a scorer with labelled reference cases. Running the viewers makes no model calls. The
+numbers are invented for teaching and must not be used to rank real models. Use the
+measured course results (`MODULE7-SELECTION-HANDOUT.md`) for the classroom selection
+decision. The technical interface names (such as `AdversarialBenchmark`) are explained
+below as reference; you do not need to decode them before the task.
 
 ```bash
 python3 modules/module7/m7-selection/benchmark_view.py     # AdversarialBenchmark — attacker comparison

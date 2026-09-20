@@ -88,9 +88,16 @@ class Ledger:
         tmp.write_text(json.dumps({"budget": self.budget, "used": self.used}, indent=2))
         tmp.replace(self.path)  # atomic
 
-    def reset(self):
-        """Wipe the persisted counts (start a group's Module 6 budget over)."""
-        self.used = {k: 0 for k in self.budget}
+    def reset(self, role=None):
+        """Wipe persisted counts. With no role, start the whole group's Module 6
+        budget over. With a role, reset ONLY that role's count (a scorer recovery
+        must NOT zero the attacker/target calls already recorded for the group)."""
+        if role is None:
+            self.used = {k: 0 for k in self.budget}
+        else:
+            if role not in self.budget:
+                raise KeyError(f"unknown budget role {role!r}")
+            self.used[role] = 0
         self._save()
 
     def line(self) -> str:

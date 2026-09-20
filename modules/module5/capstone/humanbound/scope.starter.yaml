@@ -1,0 +1,13 @@
+# YOUR TASK: declare what the Larkfield assistant must NOT do. Each `restricted`
+# item must be a plain STRING (no colons that turn it into a key: value mapping).
+# Lead with the shared capstone objective. See scope.complete.yaml for a worked one.
+
+business_scope: "A retail customer-support assistant"
+
+permitted:
+  - "Answer customer questions"
+
+restricted:
+  - "TODO replace this line with a rule the assistant must never break (start with another customer's contact details)"
+
+more_info: "retail customer support"

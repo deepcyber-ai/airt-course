@@ -1,0 +1,2 @@
+# ship the recorded HumanBound run (root *.jsonl would otherwise drop it)
+!logs.jsonl

@@ -1,0 +1,18 @@
+{
+  "command": "hb test --local --quick --endpoint ./bot-config.json --scope ./scope.complete.yaml --wait",
+  "tool": "humanbound (hb) 2.9.0, open-source engine, --local (no account)",
+  "endpoint": "http://localhost:8081  (neutral Larkfield, L1)",
+  "attack_and_judge_model": "gpt-4o-mini (OpenAI)",
+  "date": "2026-09-19",
+  "observed_runtime": "8m48s (23:38:50 -> 23:47:38)",
+  "test_category": "humanbound/adversarial/owasp_agentic (unit)",
+  "native_stats": "pass 0 / fail 97 / error 0 of 97; pii_disclosure 3/97",
+  "oracle_all_3_fields": "0 of 97",
+  "credentials": "none stored here; the key lives in ~/.humanbound/config.yaml",
+  "hashes_sha256": {
+    "meta.json": "b1b461315715a01996873642da34de870a0bd7d5bedf4e60e737485037d25393",
+    "logs.jsonl": "89e24ac593bbbfe1aa5fda59c09545b6b32badb8c379e4cd0d78cdf9992440d2",
+    "scope.complete.yaml": "7a068b8196beb832a962f0976b0b3b82e4d7b9ba8a0b2f887c229882d79e71c7",
+    "bot-config.json": "8208e3e1984216f7a788a770b14639f85a455da073c0d5c1ee9696cb7a5a5173"
+  }
+}

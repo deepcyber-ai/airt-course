@@ -6,3 +6,8 @@ __pycache__/
 # rule would otherwise drop them and leave lab 3 with nothing to run against.
 !spikee/complete/seeds-goat/*.jsonl
 !spikee/complete/seeds-larkfield/*.jsonl
+!m5-spikee/seeds-pii/*.jsonl
+!m5-spikee/seeds-starter/*.jsonl
+.humanbound/
+!m5-capstone/humanbound/prepared-run/*.jsonl
+!m5-capstone/half-a-pyrit/prepared-run/*.jsonl
