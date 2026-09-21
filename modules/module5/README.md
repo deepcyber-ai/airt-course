@@ -29,10 +29,10 @@ comparison:
 
 The assigned close. Split the room: **Half A** drives a named multi-turn technique with a
 larger budget (PyRIT); **Half B** declares a scope and inspects a prepared HumanBound run.
-Same target, same objective. Compare only tests that actually addressed the same
-objective. Record the result, the requests used and the evidence saved. If you inspect a
-prepared HumanBound run, label it as a recorded example — a declared scope does not show
-that every objective was tested.
+The recording did **not** test Half A's contact-details objective. Compare how the two
+approaches work, the requests used and the evidence recorded, and explain that coverage
+gap rather than ranking their success rates. Label the HumanBound run as a recorded
+example — a declared scope does not show that every objective was tested.
 
 ## Also here
 

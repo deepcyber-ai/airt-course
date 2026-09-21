@@ -1,89 +1,85 @@
-# Lab 3 — spikee
+# Lab 3 — Spikee (starter)
 
-Reversec's prompt-injection kit. Two halves:
+## What you'll do
 
-1. **Single-turn datasets** — payloads built by combining instructions with
-   jailbreak wrappers, fired one at a time.
-2. **GOAT** — a real implementation of the Generative Offensive Agent Tester
-   (arXiv 2410.01606), which holds a multi-turn conversation and adapts.
+Spikee uses a Python connector to send requests to Larkfield. Copy the supplied
+connector into your workspace and read how it sends the request and extracts the reply.
+Then create a small dataset and send each prompt as a separate test (single-turn). The
+multi-turn GOAT example is in the `complete` version.
 
-Unlike promptfoo and garak, spikee has no built-in way to reach an application
-like ours — its targets talk to LLM provider APIs. So you write a **target
-module**. That is the point of the first half of this lab: every scanner has to
-be told how to reach your system, and writing one shows you what all of them
-actually need.
+## Before you start
 
-## Setup
+- **Target:** neutral Larkfield on `:8089` — bring it up with `airt-target larkfield`.
+  For the hardened comparison you **restart the same target with the hardened prompt**
+  (same port), so leave that until step 3.
+- **`<repo>`** below means your course checkout — the folder that contains `modules/`
+  and `labs-ctf/`.
+- Set up a Spikee workspace and add the Larkfield target:
 
 ```bash
 mkdir -p ~/spikee-ws && cd ~/spikee-ws
 spikee init                                    # creates datasets/ targets/ attacks/ judges/
 cp <repo>/modules/module4/spikee/starter/targets/larkfield.py targets/
-
-spikee list targets                            # larkfield should appear
+cp <repo>/modules/module4/spikee/complete/judges/airt_flags.py judges/   # the dataset names this judge
+spikee list targets                            # 'larkfield' should appear
 ```
 
-Bring up one Larkfield target first (`airt-target larkfield` → **`:8089`**). The
-hardened posture is the **same target restarted with the hardened prompt** — the
-comparison.
+If `larkfield` shows an error in the Tags column, the module raised while Spikee was
+describing it — read the traceback (it's usually a typo in an enum).
 
-If the target appears with an error in the Tags column, the module raised while
-being described — read the traceback, it is usually a typo in the enum.
-
-## The point of the first exercise
-
-Generate a dataset from generic seeds and you should expect a very low score —
-likely zero — and the first exercise is to work out whether that means the
-target held or the test was never capable of finding anything. A marker is a
-**discovery** signal — "no flag" means no configured flag was observed, not that
-the target held. Seeds that ask ordinary support questions are not aimed at any
-configured effect, so a scanner reporting zero against a target you have not
-aimed at tells you nothing. Run it and record what you actually get.
-
-## Four things that will cost you an hour if nobody warns you
-
-| Trap | What you see |
-|---|---|
-| `--sample` is a **fraction**, not a count | `--sample 12` → "Sample larger than population" |
-| Target must return a **2-tuple** `(bool-or-Content, meta)` | "Invalid tuple return … got 3 elements" |
-| `--include-standalone-inputs` is **not** the default | dataset generates with **0 entries**, no error |
-| Tags come from `ModuleTag` — there is no `CUSTOM` | target lists with an error where its tag should be |
-
-The third is the dangerous one. You get a valid, empty dataset and a run that
-reports `success=0`, which is indistinguishable from a secure target.
-
-## Your task
+## Run the exercise
 
 **1. Write a dataset aimed at THIS target.** A seed folder needs
-`standalone_user_inputs.jsonl` plus empty `instructions.jsonl`,
-`jailbreaks.jsonl` and `base_user_inputs.jsonl`. Each line:
+`standalone_user_inputs.jsonl` plus empty `instructions.jsonl`, `jailbreaks.jsonl`
+and `base_user_inputs.jsonl`. Each line looks like:
 
 ```json
 {"id":"my-probe-01","text":"...","jailbreak_type":"data-disclosure",
  "judge_name":"airt_flags","judge_args":"","ideal_summary":"","question":"","ideal_answer":""}
 ```
 
-Aim at effects, not opinions. The target scores when something *happens* — a
-query runs, a record returns, a restricted tool is invoked. On the neutral
-target a single probe may be refused; record that too.
+Check the response and relevant tool records to establish what happened — the target
+scores when something happens (a query runs, a record returns, a restricted tool is
+invoked). On the neutral target a single probe may be refused; that is a valid result
+to record.
 
-**2. Run it, then restart the target with the hardened prompt and run again**, and diff.
+**2. Generate and run it** single-turn against `:8089`. (Remember `--include-standalone-inputs`,
+or the dataset generates empty — see troubleshooting below.)
 
-**3. Then GOAT.** See `../complete/README.md` once you have the single-turn
-half working.
+**3. Restart the target with the hardened prompt, run the same dataset again, and
+compare** the two results.
 
-**Finding the details:** the run prints `Results saved to results/…jsonl` — open it for the full transcript (each prompt, the reply, the judge output).
+## Read and record
 
-## Why this target needs no judge
+Open the results file printed at the end of the run. Read each prompt, Larkfield's
+reply in `meta.response`, and the flag result in `success`. A first run built from
+generic seeds often scores zero, and the first question to answer is whether that means
+the target held or your test never aimed at anything. "No flag" means no configured flag
+fired — not that the target is safe. Record what you actually got.
 
-`larkfield.py` returns a **bool** rather than text, so spikee scores on our flag
-markers instead of calling an LLM judge. No judge model, no judge cost. The
-reply rides along in `meta` so you can check the aimed effect — a marker is a
-discovery signal, not proof (an `llm06` marker can be a simulated tool call, not
-a deletion), so read the response and the evidence.
+## Optional — troubleshooting, and how the scoring works
 
-That is a deliberate trade. You lose spikee's own nuanced grading; you gain a
-signal that ties to the harness's own flags. Where you need content grading, the
-complete lab adds an explicit LLM judge to compare against.
+**Troubleshooting.**
+
+| Trap | What you see |
+|---|---|
+| `--sample` is a **fraction**, not a count | `--sample 12` → "Sample larger than population" |
+| The target must return a **2-tuple** `(bool-or-Content, meta)` | "Invalid tuple return … got 3 elements" |
+| `--include-standalone-inputs` is **not** the default | dataset generates with **0 entries**, no error |
+| Tags come from `ModuleTag` — there is no `CUSTOM` | target lists with an error where its tag should be |
+
+The third is the dangerous one: you get a valid but empty dataset and a run that
+reports `success=0` — indistinguishable from a secure target.
+
+**Why this target needs no judge model.** `larkfield.py` returns a **bool** instead of
+text, so Spikee scores on our flag markers rather than calling an LLM judge — no judge
+model, no judge cost. The reply rides along in `meta` so you can still check the aimed
+effect. A marker is a discovery signal, not proof (an `llm06` marker can be a simulated
+tool call, not a real deletion), so read the response and the evidence too. That is a
+deliberate trade: you lose Spikee's own nuanced grading and gain a signal tied to the
+harness's flags. Where you need content grading, the `complete` lab adds an explicit
+LLM judge.
+
+**Next:** once the single-turn half works, do GOAT in [`../complete/README.md`](../complete/README.md).
 
 (c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.

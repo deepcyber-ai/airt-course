@@ -7,14 +7,11 @@ bash modules/module4/garak/complete/run.sh           # full set against the CURR
 POSTURE=hardened bash modules/module4/garak/complete/run.sh
 ```
 
-**A quiet console is normal.** garak's own output goes to the log file, so after
-`=== neutral (:8089) ===` the terminal stays silent until the run finishes (the full
-set is a few minutes). It is not stuck — watch progress with
-`tail -f modules/module4/garak/complete/out/<tag>-<posture>.log` (e.g.
-`…/out/full-neutral.log`) in another terminal, or run
-`bash modules/module4/garak/complete/run.sh quick`
-first for a ~1 min plumbing check. When it finishes it prints the `garak run complete`
-summary and the report locations.
+**What you'll see.** garak's progress streams to the console as it runs (each probe's
+`ok on …` line), and the same output is saved to `out/<tag>-<posture>.log`. The full set
+is a few minutes; run `bash modules/module4/garak/complete/run.sh quick` first for a ~1 min
+plumbing check. When it finishes it prints the `garak run complete` summary and the report
+locations.
 
 The runner calls the VM's `garak` launcher (its own environment), writes a full
 log per run, and **stops if a scan fails** rather than printing "reports" over a
@@ -46,13 +43,12 @@ Read the per-probe evidence, not just the aggregate — the transcript is the fi
 ## The finding to look for
 
 Run the full set against each posture (neutral, then hardened) and read the reports
-**per probe**, not by the aggregate. You may see the aggregate fall from neutral to
-hardened, so the
-hardening looks like a win — or you may not; that is for your reports to say. The
-point of the lab holds either way: an **aggregate score can hide a per-objective
-result that did not move**, so look for one and name it, from your own reports.
-(Record your own numbers as the evidence; do not carry numbers measured on a
-different target onto this one.)
+**per probe**, not by the aggregate. Compare the overall resilience percentage and each
+probe's result before and after hardening. A higher resilience percentage means more
+tested responses passed Garak's checks. Inspect the replies to explain the changes you
+observe. An **aggregate score can hide a per-objective result that did not move**, so
+look for one and name it, from your own reports. (Record your own numbers as the
+evidence; do not carry numbers measured on a different target onto this one.)
 
 ## What `latentinjection` here actually tests
 

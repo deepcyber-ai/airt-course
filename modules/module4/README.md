@@ -79,10 +79,11 @@ promptfoo view
 
 ### PyRIT
 ```bash
-cd "$COURSE_ROOT/modules/module4/native-demo/pyrit"
-# edit starter.py — write your single-turn attack in ATTACK — then run it:
+# edit the ATTACK line in starter.py, then run it:
+cd "$COURSE_ROOT/modules/module4/pyrit/starter"
 python3 starter.py
-# complete.py is the worked version (benign control + a disclosure attempt):
+# the worked version (benign control + a disclosure attempt):
+cd "$COURSE_ROOT/modules/module4/pyrit/complete"
 python3 complete.py
 ```
 Single-turn (PyRIT sends each prompt once, no attacker model). It deliberately has **no

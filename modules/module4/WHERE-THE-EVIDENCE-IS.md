@@ -7,20 +7,23 @@ tool's own directory.
 | Tool | Summary view | Raw evidence (prompts + replies) | Read it |
 |---|---|---|---|
 | **garak** | `out/<tag>-<posture>.report.html` | `out/<tag>-<posture>.hitlog.jsonl` — **only the failures** (what got through, with the reply). `.report.jsonl` = every attempt. | `jq -c '{probe, prompt, output}' out/full-neutral.hitlog.jsonl` |
-| **Promptfoo** | `promptfoo view` (browser) | SQLite DB: `$PROMPTFOO_CONFIG_DIR/promptfoo.db` | `promptfoo view` &nbsp;·&nbsp; or `sqlite3 "$PROMPTFOO_CONFIG_DIR/promptfoo.db"` |
+| **Promptfoo** | `promptfoo view` (browser) | SQLite DB: `$PROMPTFOO_CONFIG_DIR/promptfoo.db` | `promptfoo view` &nbsp;·&nbsp; or `sqlite3 "$PROMPTFOO_CONFIG_DIR/promptfoo.db"` (the direct DB path needs `$PROMPTFOO_CONFIG_DIR` set for that run; otherwise use `promptfoo view`) |
 | **Spikee** | the printed `success` summary | `results/results_…jsonl` (path printed at the end) — full transcript + judge output | `jq -c . results/results_*.jsonl` |
 | **PyRIT** | the `[control]`/`[attack]` lines it prints | SQLite memory DB: `out/pyrit.db` | `sqlite3 out/pyrit.db ".tables"` then read the message table |
-| **HumanBound** | `read-results.py` output | the prepared-run files under `native-demo/humanbound/prepared-run/` | `python3 …/humanbound/prepared-run/read-results.py` |
+| **HumanBound** | `read-results.py` output | the prepared-run files under `native-demo/humanbound/prepared-run/` | `python3 modules/module4/native-demo/humanbound/prepared-run/read-results.py` |
 
 ## Reading the numbers
 
-garak's `%` is **resilience** — higher means the target *resisted* more — and
-**DC-5 is its best grade**. So a **low** score is the interesting probe. A `100%`
-probe (like `leakreplay`) has an **empty hitlog**, because nothing got through.
+Garak's resilience percentage shows how often its checks passed — a higher percentage
+means more tested responses passed those checks, so a **low** score is the interesting
+one. The hitlog contains responses its detectors marked as failures; if there were no
+failures, the hitlog may not be created — use the report file to inspect all attempts.
+A whole-run hitlog can also contain other probes' failures even when one probe passes
+every check.
 
-Promptfoo's **fail** on an attack case means the assertion caught the target
-misbehaving — i.e. the attack **worked**. Spikee's `success: true` means the same
-thing. Same event, opposite words.
+In these examples, a failed Promptfoo assertion or a successful Spikee check identifies
+a result to **inspect**. Read the prompt, reply and relevant tool evidence before deciding
+whether the attack achieved its objective.
 
 ## If a field comes back empty
 

@@ -33,16 +33,15 @@ run () {   # port
   sed "s/8089/${port}/" "${HERE}/../starter/larkfield.json" > "${OUT}/target-${port}.json"
   log="${OUT}/${TAG}-${POSTURE}.log"
   echo "=== ${POSTURE} (:${port}) ==="
-  echo "  garak output -> ${log}"
-  echo "  A quiet console is normal — garak logs to that file. Watch it with:  tail -f \"${log}\""
+  echo "  garak output streams below (and is also saved to ${log})."
   echo "  (the full set is a few minutes; run 'bash \"${HERE}/run.sh\" quick' for a ~1 min check.)"
   # Keep the FULL log and propagate a scanner failure — do not let a piped grep
   # mask a non-zero exit and print "reports" over a crashed run.
   garak --model_type rest \
     --generator_option_file "${OUT}/target-${port}.json" \
     --probes "$PROBES" --generations 1 \
-    --report_prefix "${OUT}/${TAG}-${POSTURE}" >"$log" 2>&1
-  rc=$?
+    --report_prefix "${OUT}/${TAG}-${POSTURE}" 2>&1 | tee "$log"
+  rc=${PIPESTATUS[0]}          # garak's exit, not tee's (pipefail is set above)
   grep -aE "ok on|garak run complete" "$log" || true
   if [ "$rc" -ne 0 ]; then
     echo "ERROR: garak exited ${rc} for ${POSTURE}. Full log: ${log}" >&2

@@ -2,7 +2,7 @@
   "product": "airt-harness-course",
   "edition": "AMLUCS-2026",
   "course_manifest_version": "0.1-draft",
-  "source_revision": "7113a83f7dc3b55b2977bfdebb2a3448f2864ed2",
+  "source_revision": "ff9080c09e2df715ef28ff264b5c503c067d80d7",
   "dirty_files": {},
   "consumes": {
     "harness_release": "v1.0.18",
@@ -22,7 +22,7 @@
     "m5_budget": "24 requests/pair for the core MANUAL exercise; the OPTIONAL full-tool route (one tool per pair) allows ~\u00a32/learner",
     "scorer_criteria": "m6-orig-v1 / m6-alt-v1"
   },
-  "attendee_file_count": 187,
+  "attendee_file_count": 189,
   "instructor_file_count": 10,
   "scanner": {
     "version": "scan_secrets/1.0.0",
@@ -96,13 +96,13 @@
     },
     "modules/module4/WHERE-THE-EVIDENCE-IS.md": {
       "source": "course-production/module4/WHERE-THE-EVIDENCE-IS.md",
-      "source_sha256": "e801309f7e9f36236ea708df39c884e5cc6f4e434464b9f3891fa322a42274bb",
-      "dest_sha256": "e801309f7e9f36236ea708df39c884e5cc6f4e434464b9f3891fa322a42274bb"
+      "source_sha256": "21d60c3b1bcb1960a3f52434398ffb6d598efbc3cc34aa23620a2958a72237ba",
+      "dest_sha256": "21d60c3b1bcb1960a3f52434398ffb6d598efbc3cc34aa23620a2958a72237ba"
     },
     "modules/module4/README.md": {
       "source": "course-production/module4/attendee/README.md",
-      "source_sha256": "819273bbea860b6c5342d5cce2e636771412e7cce69f230216dbe5cd2760d20c",
-      "dest_sha256": "819273bbea860b6c5342d5cce2e636771412e7cce69f230216dbe5cd2760d20c"
+      "source_sha256": "f0514666c2419b5a57df1dbbae8b566d84ff28d7048de2c34473c52f1d234281",
+      "dest_sha256": "f0514666c2419b5a57df1dbbae8b566d84ff28d7048de2c34473c52f1d234281"
     },
     "modules/module4/native-demo/README.md": {
       "source": "course-production/module4/native-demo-examples/README.md",
@@ -154,20 +154,10 @@
       "source_sha256": "4daf59f81811531bf5f720e2c8205f39eab9f52ec8c5d4d05887a1e9193ca205",
       "dest_sha256": "4daf59f81811531bf5f720e2c8205f39eab9f52ec8c5d4d05887a1e9193ca205"
     },
-    "modules/module4/native-demo/pyrit/complete.py": {
-      "source": "course-production/module4/native-demo-examples/pyrit/complete.py",
-      "source_sha256": "a5d7912921e132dea0b842e48a011ffb31e859d2818ae3d1ce492bae36fdc315",
-      "dest_sha256": "a5d7912921e132dea0b842e48a011ffb31e859d2818ae3d1ce492bae36fdc315"
-    },
     "modules/module4/native-demo/pyrit/native_pyrit_demo.py": {
       "source": "course-production/module4/native-demo-examples/pyrit/native_pyrit_demo.py",
       "source_sha256": "7ba576dcdf10ccd91bfb6d555e74cbf297fb3fa2436903179f8382cc169be9bb",
       "dest_sha256": "7ba576dcdf10ccd91bfb6d555e74cbf297fb3fa2436903179f8382cc169be9bb"
-    },
-    "modules/module4/native-demo/pyrit/starter.py": {
-      "source": "course-production/module4/native-demo-examples/pyrit/starter.py",
-      "source_sha256": "46dbac1c6bec47e71b1958f711ef9c559e7a31659a5941c4355b82d53f1bb679",
-      "dest_sha256": "46dbac1c6bec47e71b1958f711ef9c559e7a31659a5941c4355b82d53f1bb679"
     },
     "modules/module4/native-demo/spikee/larkfield_http.py": {
       "source": "course-production/module4/native-demo-examples/spikee/larkfield_http.py",
@@ -201,8 +191,8 @@
     },
     "modules/module5/README.md": {
       "source": "course-production/module5/attendee/README.md",
-      "source_sha256": "c97a9cf9a72337c494d277230e9d937cbbc4a00c7235f81343f3b91497dad08d",
-      "dest_sha256": "c97a9cf9a72337c494d277230e9d937cbbc4a00c7235f81343f3b91497dad08d"
+      "source_sha256": "69a495dd12f95b46fa01ec574504b4bfdb5d56a62d0c519ab369528bcc0d241f",
+      "dest_sha256": "69a495dd12f95b46fa01ec574504b4bfdb5d56a62d0c519ab369528bcc0d241f"
     },
     "modules/module6/README.md": {
       "source": "course-production/module6/attendee/README.md",
@@ -416,13 +406,13 @@
     },
     "modules/module4/garak/complete/README.md": {
       "source": "labs/garak/complete/README.md",
-      "source_sha256": "cf25a809530319f472d499eecae5272bf4820066c0f82aa4fc9266d98923eb90",
-      "dest_sha256": "cf25a809530319f472d499eecae5272bf4820066c0f82aa4fc9266d98923eb90"
+      "source_sha256": "a04d8645f3c8d51f58fbe1c931e560a21644f05c57e0b903df7ed3cd5df96913",
+      "dest_sha256": "a04d8645f3c8d51f58fbe1c931e560a21644f05c57e0b903df7ed3cd5df96913"
     },
     "modules/module4/garak/complete/run.sh": {
       "source": "labs/garak/complete/run.sh",
-      "source_sha256": "d7d1b2e61f4e5d971c56d16a79a0370d8456de01f5a3f527b8a8f0e8e15c9ae5",
-      "dest_sha256": "d7d1b2e61f4e5d971c56d16a79a0370d8456de01f5a3f527b8a8f0e8e15c9ae5"
+      "source_sha256": "fc741d0918b6363102d8ddae90d588d5971d9e62743e84f5cd0a47a2f37205d1",
+      "dest_sha256": "fc741d0918b6363102d8ddae90d588d5971d9e62743e84f5cd0a47a2f37205d1"
     },
     "modules/module4/garak/starter/README.md": {
       "source": "labs/garak/starter/README.md",
@@ -471,13 +461,13 @@
     },
     "modules/module5/capstone/COMPARISON-RECORD.md": {
       "source": "labs/m5-capstone/COMPARISON-RECORD.md",
-      "source_sha256": "1a09061e3d8f603d728015e3d00ba8d35cfe130d5b521e7cbc19b2c34c5ee5a7",
-      "dest_sha256": "1a09061e3d8f603d728015e3d00ba8d35cfe130d5b521e7cbc19b2c34c5ee5a7"
+      "source_sha256": "63d3dc4480ed50179a7f802802cbf2e0d23bae4fed47e4f5dab96f74755a3ab7",
+      "dest_sha256": "63d3dc4480ed50179a7f802802cbf2e0d23bae4fed47e4f5dab96f74755a3ab7"
     },
     "modules/module5/capstone/README.md": {
       "source": "labs/m5-capstone/README.md",
-      "source_sha256": "be5924fcf84d64161899f07d48c0a6aa51f73e1d7720dae5a2e63ae330b0ea6c",
-      "dest_sha256": "be5924fcf84d64161899f07d48c0a6aa51f73e1d7720dae5a2e63ae330b0ea6c"
+      "source_sha256": "1461b8b7c4f8969100a6b065415918747b03b22e329a4d2206f4799291849d75",
+      "dest_sha256": "1461b8b7c4f8969100a6b065415918747b03b22e329a4d2206f4799291849d75"
     },
     "modules/module5/capstone/half-a-pyrit/complete.py": {
       "source": "labs/m5-capstone/half-a-pyrit/complete.py",
@@ -486,8 +476,8 @@
     },
     "modules/module5/capstone/half-a-pyrit/prepared-run/README.md": {
       "source": "labs/m5-capstone/half-a-pyrit/prepared-run/README.md",
-      "source_sha256": "2cb11fcfaec87761b910565dd445d52c034f50ac13d380a95ba276f6455d7654",
-      "dest_sha256": "2cb11fcfaec87761b910565dd445d52c034f50ac13d380a95ba276f6455d7654"
+      "source_sha256": "6cc50b3699e7a94712363cda7bd3b834da472bb4bb6dff001b4390338cfc7e97",
+      "dest_sha256": "6cc50b3699e7a94712363cda7bd3b834da472bb4bb6dff001b4390338cfc7e97"
     },
     "modules/module5/capstone/half-a-pyrit/prepared-run/provenance.json": {
       "source": "labs/m5-capstone/half-a-pyrit/prepared-run/provenance.json",
@@ -511,8 +501,8 @@
     },
     "modules/module5/capstone/humanbound/prepared-run/README.md": {
       "source": "labs/m5-capstone/humanbound/prepared-run/README.md",
-      "source_sha256": "5c6bd31f5fe643c9e3b47173d2154c913a0f538786c7ba6243947f52c95cf3d6",
-      "dest_sha256": "5c6bd31f5fe643c9e3b47173d2154c913a0f538786c7ba6243947f52c95cf3d6"
+      "source_sha256": "96b41cc489b17ef406d76cd918ffb2f6a08e5f20c4b96ada2e6aada3b0f3a074",
+      "dest_sha256": "96b41cc489b17ef406d76cd918ffb2f6a08e5f20c4b96ada2e6aada3b0f3a074"
     },
     "modules/module5/capstone/humanbound/prepared-run/logs.jsonl": {
       "source": "labs/m5-capstone/humanbound/prepared-run/logs.jsonl",
@@ -591,8 +581,8 @@
     },
     "modules/module5/spikee/README.md": {
       "source": "labs/m5-spikee/README.md",
-      "source_sha256": "4fd85c3c4294b8c4dc6f6bad4046d6db7290579b9af7492ff2c5073bddbfd38b",
-      "dest_sha256": "4fd85c3c4294b8c4dc6f6bad4046d6db7290579b9af7492ff2c5073bddbfd38b"
+      "source_sha256": "2dc1d192525d31c897a75754cf7d572a5888f573f13b7de8b75cfcd43c386447",
+      "dest_sha256": "2dc1d192525d31c897a75754cf7d572a5888f573f13b7de8b75cfcd43c386447"
     },
     "modules/module5/spikee/crescendo/complete.sh": {
       "source": "labs/m5-spikee/crescendo/complete.sh",
@@ -784,6 +774,26 @@
       "source_sha256": "77ccbd032dac98a1f4a03cca4bbffa1524af0405522fc9535b34c4d091aebc09",
       "dest_sha256": "77ccbd032dac98a1f4a03cca4bbffa1524af0405522fc9535b34c4d091aebc09"
     },
+    "modules/module4/pyrit/complete/README.md": {
+      "source": "labs/pyrit-single/complete/README.md",
+      "source_sha256": "d0d0bb3c34a33e1ba026fc16bbca460042c27ec340e18213b3c62f139fcfb26e",
+      "dest_sha256": "d0d0bb3c34a33e1ba026fc16bbca460042c27ec340e18213b3c62f139fcfb26e"
+    },
+    "modules/module4/pyrit/complete/complete.py": {
+      "source": "labs/pyrit-single/complete/complete.py",
+      "source_sha256": "a69ab40f1286462c82c6d3b624363b519b04631a667624338b83623789bbd5d8",
+      "dest_sha256": "a69ab40f1286462c82c6d3b624363b519b04631a667624338b83623789bbd5d8"
+    },
+    "modules/module4/pyrit/starter/README.md": {
+      "source": "labs/pyrit-single/starter/README.md",
+      "source_sha256": "d73fc349b933215a6dcae503aac044049b4164f025afe3882cce8c9a4bb93f21",
+      "dest_sha256": "d73fc349b933215a6dcae503aac044049b4164f025afe3882cce8c9a4bb93f21"
+    },
+    "modules/module4/pyrit/starter/starter.py": {
+      "source": "labs/pyrit-single/starter/starter.py",
+      "source_sha256": "22093ac8d6a381c738a5bebc031ab93b5a997d183320f11190b377c920785dd5",
+      "dest_sha256": "22093ac8d6a381c738a5bebc031ab93b5a997d183320f11190b377c920785dd5"
+    },
     "modules/module5/pyrit/EXPLORE-FURTHER.md": {
       "source": "labs/pyrit/EXPLORE-FURTHER.md",
       "source_sha256": "c0e48ff955d19d615f1e3702ab3f2a26f5c0c762f598b489dd7b8d096b530500",
@@ -791,8 +801,8 @@
     },
     "modules/module5/pyrit/README.md": {
       "source": "labs/pyrit/README.md",
-      "source_sha256": "673fc5bbc6f58d2c67138f4af9d6c32c4c565e93303e5091c7b9782a9128ba0f",
-      "dest_sha256": "673fc5bbc6f58d2c67138f4af9d6c32c4c565e93303e5091c7b9782a9128ba0f"
+      "source_sha256": "5a96ebed9e77c1582797cd1453d46ca21b6e6ba480afeeb971b5bf4fb009da77",
+      "dest_sha256": "5a96ebed9e77c1582797cd1453d46ca21b6e6ba480afeeb971b5bf4fb009da77"
     },
     "modules/module5/pyrit/_common.py": {
       "source": "labs/pyrit/_common.py",
@@ -936,8 +946,8 @@
     },
     "modules/module4/spikee/starter/README.md": {
       "source": "labs/spikee/starter/README.md",
-      "source_sha256": "190dc635deb7c916f001559cce2dad423727e8453e94b004f9cf5e0a29feb855",
-      "dest_sha256": "190dc635deb7c916f001559cce2dad423727e8453e94b004f9cf5e0a29feb855"
+      "source_sha256": "dbcb1a60b0f7453c0867414ce7a4a49affdf1d24046efc81893df088771ae025",
+      "dest_sha256": "dbcb1a60b0f7453c0867414ce7a4a49affdf1d24046efc81893df088771ae025"
     },
     "modules/module4/spikee/starter/targets/larkfield.py": {
       "source": "labs/spikee/starter/targets/larkfield.py",

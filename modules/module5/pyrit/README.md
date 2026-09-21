@@ -1,9 +1,9 @@
 # Module 5 — PyRIT, one method at a time
 
-**One single-turn example plus four multi-turn methods.** For every method a
-**starter** (you fill in the objective and its expected flag) and a **complete**
-(objective = cross-customer PII — the same objective across all methods, so the
-techniques are compared on a common task).
+This folder contains one single-turn example and four multi-turn techniques: PAIR,
+TAP, GOAT and Crescendo. Each has a starter and a worked example. In the starter, you
+supply the objective and expected flag. Each worked example tries to reveal another
+customer's synthetic contact details.
 
 ```bash
 export AIRT_COURSE_ROOT=/path/to/course     # the tree with labs/ + models.yaml
@@ -25,19 +25,14 @@ the flag you expect. Compare against the **complete**.
 
 ## Prepared attack model + automatic stopping check
 
-The four multi-turn methods need a **prepared attack model** (it writes each turn,
-from `AIRT_ATTACKER`) and an **automatic stopping check** — a free, deterministic
-**local objective check** (does the reply carry the objective's flag?), no *separate*
-judge model. **Module 6** introduces these as the *attacker* and *scorer* roles and
-their reliability. Here we just run them.
+The four multi-turn techniques use the model selected by `AIRT_ATTACKER` to write
+attack requests. A local check looks for the expected flag to decide when to stop. This
+check makes no model calls. Module 6 examines attack models, scorers and their
+reliability.
 
-**One honest cost caveat:** "no judge model" refers to the *stopping check*. The
-techniques themselves use the **attack model** for more than writing turns —
-Crescendo calls it again each turn to classify whether the target refused, and TAP
-calls it to score each candidate for staying on-topic. In our rehearsal Crescendo
-made ~6 generation **plus ~6 refusal-judgement** calls, and TAP ~21 generation
-**plus ~21 on-topic** calls. Those are attack-model calls on your key — count them
-in the cost below.
+The techniques also use the attack model for other checks. Crescendo checks whether the
+target refused. TAP checks whether each proposed request stays on topic. These additional
+model calls use your key and contribute to the cost.
 
 The stopping check fires on the objective's **own** flag. `show()` keeps the
 **expected** flag separate from any **collateral** flag it happens to trip — a
@@ -48,8 +43,7 @@ collateral flag is a real finding, but not the objective you aimed at.
 There is **no request cap**: a run spends what the technique spends. Watch
 `target requests this run` in the output — TAP and PAIR **branch**, so they send
 many times more than the visible turns. Costs (attacker **and** target both run on
-your key), per student, one full uncapped pass of all five completes — *the owner
-reviewed and approved these*:
+your key), per student, one full uncapped pass of all five completes:
 
 | Your model (attack model + target) | Full set once | TAP alone |
 |---|--:|--:|
@@ -57,10 +51,10 @@ reviewed and approved these*:
 | gpt-4o-mini | ~$0.30–0.70 | ~$0.20–0.40 |
 | qwen / Bedrock | ~$0.50–1.50 | ~$0.40–1 |
 
-**Guidance:** on a cheap model the whole set is under ~$1–2 even uncapped. Only
-gpt-4.1 + repeated TAP stings — so **use a cheap attack model for the tree
-methods**. The saved trace records the exact request count so you can see what a run
-cost.
+**Guidance:** on a cheap model the whole set is under ~$1–2 even uncapped; the high
+end is gpt-4.1 with the tree methods, so **use a cheap attack model for TAP and PAIR**.
+The saved conversation records the target request count. Total cost also depends on
+model calls, token use and provider prices.
 
 ## Indirect injection — optional stretch on crescendo
 
