@@ -2,7 +2,7 @@
   "product": "airt-harness-course",
   "edition": "AMLUCS-2026",
   "course_manifest_version": "0.1-draft",
-  "source_revision": "ff9080c09e2df715ef28ff264b5c503c067d80d7",
+  "source_revision": "58639902c8eba2082eb3f5a6f693512aa6420543",
   "dirty_files": {},
   "consumes": {
     "harness_release": "v1.0.18",
@@ -751,8 +751,8 @@
     },
     "modules/module4/promptfoo/complete/README.md": {
       "source": "labs/promptfoo/complete/README.md",
-      "source_sha256": "e8302dcc7e3d2f85bc9cb4d2ac9172bf6738bf38b28f23a363d454ec045bee6a",
-      "dest_sha256": "e8302dcc7e3d2f85bc9cb4d2ac9172bf6738bf38b28f23a363d454ec045bee6a"
+      "source_sha256": "8331d315c76f9852dc94cd7231a9eadd23ddc4c443d6c1d0b39e9ae83064bd02",
+      "dest_sha256": "8331d315c76f9852dc94cd7231a9eadd23ddc4c443d6c1d0b39e9ae83064bd02"
     },
     "modules/module4/promptfoo/complete/delete.yaml": {
       "source": "labs/promptfoo/complete/delete.yaml",
@@ -766,8 +766,8 @@
     },
     "modules/module4/promptfoo/starter/README.md": {
       "source": "labs/promptfoo/starter/README.md",
-      "source_sha256": "23eb03f078768047544eabcf55de686f00b9785442bec683de7971269f5ff0d0",
-      "dest_sha256": "23eb03f078768047544eabcf55de686f00b9785442bec683de7971269f5ff0d0"
+      "source_sha256": "8c5691a3e36ad303fe94d23daf049fa3657991055dcd21f8d85df51742add22f",
+      "dest_sha256": "8c5691a3e36ad303fe94d23daf049fa3657991055dcd21f8d85df51742add22f"
     },
     "modules/module4/promptfoo/starter/promptfooconfig.yaml": {
       "source": "labs/promptfoo/starter/promptfooconfig.yaml",

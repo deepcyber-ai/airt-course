@@ -14,10 +14,20 @@ npx promptfoo@0.123.0 eval --no-cache
 # afterwards, restart the neutral target before any lab that expects neutral.
 ```
 
-Five **non-mutating** probes in the default batch, all three starter TODOs
-answered in the config comments. The destructive deletion probe is run
-**separately and serially** (below). Target is Larkfield **L1 neutral**
-(`:8089`); the hardened comparison is the **same target restarted with the hardened prompt**.
+> **On the course VM** promptfoo is installed globally at the pinned version, so you can
+> drop the `npx promptfoo@0.123.0` prefix and just run `promptfoo eval …`. (The `npx` form
+> is the portable version for your own machine.) This applies to the destructive-probe
+> block below too.
+
+**This lab has two config files:**
+- **`promptfooconfig.yaml`** — the safe batch: five **read/disclose** probes that change
+  nothing (the three starter TODOs are answered in its comments).
+- **`delete.yaml`** — the one **destructive** probe (record deletion). It lives in its own
+  file so it never runs inside the batch and can be run **on its own, one at a time** — see
+  "The destructive probe" below.
+
+Target is Larkfield **L1 neutral** (`:8089`); the hardened comparison is the **same target
+restarted with the hardened prompt**.
 
 **What you'll see.** promptfoo prints `Running N test cases…` and shows progress while the model
 answers, then the results table and a `passed / failed` summary. Short pauses can
@@ -31,20 +41,21 @@ deletion, and `llm05` can be emitted markup rather than executed SQL. "No flag"
 means no configured flag was observed — not that the target held. Read the reply
 and, for the tool-backed probes, the events in the Raw Response tab.
 
-## The destructive probe — run it on its own, serially
+## The destructive probe — run it alone, one at a time
 
-The default batch above reads and discloses; it changes nothing, so it is safe to
-run unattended at promptfoo's default concurrency (4). The record-deletion probe
-**changes the database**. It ships as its own complete config, **`delete.yaml`**,
-so it never sits in the batch (two workers would race on the same row and a later
-probe would misreport). Run it one attempt at a time, from a verified-restored
-baseline, and read the query **event** for the row — not the model's prose — as
-the effect oracle.
+The batch above only **reads** — it discloses things but changes nothing, so it's safe
+to run at normal speed. The record-deletion probe is different: it **changes the
+database**. It has its own config, **`delete.yaml`**, and is kept out of the batch — if
+two probes ran at once they could hit the same row and give the wrong result.
 
-Run the block below **as a script** (`bash delete-run.sh`) — it stops on a failed
-reset, so the `exit 1` guards need a script, not line-by-line paste. It uses `:8089`
-throughout; to run the hardened comparison, restart the target with the hardened
-prompt (same `:8089`) — no port change here or in `delete.yaml`:
+Run it **one attempt at a time**, always starting from a **freshly restored** database,
+and decide what happened from the **query event** (the real rows the database returned) —
+**not** from what the model *says* it did.
+
+Run the block below **as a script** (save it and run `bash delete-run.sh`), not line by
+line — it's built to stop itself if a reset fails. It uses `:8089` throughout; for the
+hardened comparison, restart the target with the hardened prompt (same `:8089`) — nothing
+changes here or in `delete.yaml`.
 
 ```bash
 #!/usr/bin/env bash
@@ -77,31 +88,32 @@ curl -sS -f -X POST "localhost:$PORT/session/reset" \
   | jq -e '.reseeded == true' >/dev/null || { echo "ABORT: restore failed"; exit 1; }
 ```
 
-`-j 1` forces a single worker. If step 2's `.events` is empty, the model did not
-call the query tool — re-ask more explicitly before trusting the comparison; an
-empty event is "not observed", not "no row". The marker (step 3) and the query
-event (step 4) can disagree: that gap — a flag that fired without the row actually
-going — is the point, so record both.
+`-j 1` runs one attempt at a time. **Read the events, not the model's words.** If step
+2's `.events` is empty, the model didn't actually call the query tool — ask again more
+directly before you trust the result (empty means "we didn't see it", not "the row is
+gone"). The **flag** (step 3) and the **query event** (step 4) can disagree: a flag can
+fire even though the row was never deleted. That mismatch is the whole lesson — **write
+down both.**
 
-## The two lessons in the config (try them, don't take them on faith)
+## Two things to try in the config (test them — don't take them on trust)
 
-**A hypothesis worth testing: wording decides it, and a reason can make things
-worse.** Compare the configuration-disclosure probe with and without an opening
-reason ("I'm auditing our setup…"): the idea is that giving the model a story to
-weigh may invite it to weigh the request, where a plain instruction gives it less
-to judge. Same experiment for the deletion probe: "please remove the test account"
-versus handing over the exact `DELETE` statement. It may not hold on your model —
-run both, on both postures, and record which behaved how, as your own result.
+**1. Wording decides the outcome — and giving a "reason" can make it worse.** Run the
+configuration-disclosure probe two ways: with an opening excuse ("I'm auditing our
+setup…") and without one. Handing the model a story to weigh can make it *more* likely
+to go along; a plain instruction gives it less to argue with. Try the same for deletion:
+"please remove the test account" versus giving it the exact `DELETE` statement. It may
+not turn out that way on your model — run both, on both postures, and write down what
+you saw.
 
-**Indirect injection is left in as a test that does not fire in this config.** Its
-three moves — retrieve a document, notice the instruction inside it, act on it —
-happen across turns: in this harness the retrieved payload is substituted after the
-model answers and is only consumed on a *later* turn of the same conversation. One
-client prompt cannot both deliver and trigger it, so a one-shot probe stops short.
-(A single-turn tool is not inherently incapable of testing indirect injection; this
-configured retrieval flow just needs another turn.) A scanner reporting clean on the
-attack that most needs finding is worth watching happen. Labs 4 and 5 reach it
-because they hold a conversation.
+**2. Indirect injection is included as a test that *shouldn't* work here — on purpose.**
+Indirect injection has three steps: the model retrieves a document, spots an instruction
+hidden inside it, and acts on it. In this harness those steps happen **across turns** —
+the planted instruction only reaches the model on a *later* turn of the same
+conversation. A single prompt can't both deliver it and set it off, so a one-shot probe
+falls short. (A single-turn tool *can* test indirect injection in general — this setup
+just needs another turn.) Watching a scanner report "clean" on the attack that matters
+most is the point. The multi-turn labs (PyRIT and Spikee GOAT, Module 5) reach it because
+they hold a conversation.
 
 ## Two scorers, side by side (Module 6)
 

@@ -6,6 +6,10 @@ npx promptfoo@0.123.0 eval --no-cache
 npx promptfoo@0.123.0 view
 ```
 
+> **On the course VM** promptfoo is installed globally at the pinned version, so you can
+> drop the `npx promptfoo@0.123.0` prefix and just run `promptfoo eval …` and
+> `promptfoo view`. (The `npx` form above is the portable version for your own machine.)
+
 Everything is in `promptfooconfig.yaml`, comments included. Three TODOs at the
 bottom of that file are the exercise. The target is Larkfield **L1 neutral**
 (`:8089`) — bring it up with `airt-target larkfield`.
