@@ -2,7 +2,7 @@
   "product": "airt-harness-course",
   "edition": "AMLUCS-2026",
   "course_manifest_version": "0.1-draft",
-  "source_revision": "6f4e20f2b037d375a274b355295abd8c1c3d4ad8",
+  "source_revision": "0da176a5fa7a5a5b687d96b2ff775b3d2ab50a52",
   "dirty_files": {},
   "consumes": {
     "harness_release": "v1.0.18",
@@ -271,8 +271,8 @@
     },
     "smoke-test.sh": {
       "source": "course-production/smoke-test.sh",
-      "source_sha256": "6b76eaefa8d08d41d5f0973fc0345d59ae3420ebd78e3b8e735feacbf51692f4",
-      "dest_sha256": "6b76eaefa8d08d41d5f0973fc0345d59ae3420ebd78e3b8e735feacbf51692f4"
+      "source_sha256": "14b435b7a7cb8553cae23b9fad221ba9e0dd2c84bbbd309f2770dd4a5518b383",
+      "dest_sha256": "14b435b7a7cb8553cae23b9fad221ba9e0dd2c84bbbd309f2770dd4a5518b383"
     },
     ".gitignore": {
       "source": "export/course-root.gitignore",
