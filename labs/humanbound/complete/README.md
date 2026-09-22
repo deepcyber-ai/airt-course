@@ -1,5 +1,7 @@
 # Lab 5 — humanbound · COMPLETE
 
+**OPTIONAL AFTER-COURSE REFERENCE**
+
 ```bash
 cd labs/humanbound/complete
 hb test --endpoint ./bot-config.json --scope ./scope.yaml --wait

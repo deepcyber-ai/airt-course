@@ -11,3 +11,5 @@ __pycache__/
 .humanbound/
 !m5-capstone/humanbound/prepared-run/*.jsonl
 !m5-capstone/half-a-pyrit/prepared-run/*.jsonl
+runs/
+redteam.yaml

@@ -1,10 +1,10 @@
-# Module 5 — Spikee (Explore further / optional implementation reference)
+# Module 5 — Spikee
 
-**Optional.** The Module 5 slot is the manual practice plus the prepared recordings;
-the automated attacker/scorer reveal is the closing few minutes. This is a
-reference for attendees who want to run one tool set themselves afterwards.
-**Each student or pair runs ONE tool set only — PyRIT, Promptfoo *or* Spikee — not
-all three**, on their own provider key.
+**OPTIONAL AFTER-COURSE REFERENCE**
+
+This is after-course reference material, not a classroom task — it does not ask you to choose
+and run one of several. Of the routes here, **only Crescendo was rehearsed end to end** (20
+September 2026); the course VM attacker model, GOAT and the iterative route remain unverified.
 
 Spikee is CLI-driven, so this is delivered as **scripts**: each `*.sh` generates a
 dataset from a seed folder and runs `spikee test --attack …`.

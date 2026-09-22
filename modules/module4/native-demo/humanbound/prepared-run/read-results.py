@@ -27,4 +27,6 @@ if disclosed:
         if t.get("a"):
             print(f"    target  : {t['a']}")
 print("\n  Note: these are HumanBound's own generated single-turn tests, not the four-item")
-print("  group record. Count the config-disclosure tests as your denominator for this track.")
+print("  group record. Eight of the 304 generated tests contained the internal reference.")
+print("  Record 8 of 304 as a whole-run count. The 304 tests span several categories, so this")
+print("  is not an objective-specific success rate.")

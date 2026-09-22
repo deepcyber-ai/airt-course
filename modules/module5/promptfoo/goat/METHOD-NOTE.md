@@ -1,5 +1,7 @@
 # GOAT — HOSTED strategy — method note (NOT run in this course)
 
+**OPTIONAL AFTER-COURSE REFERENCE**
+
 **We do not run this strategy in this course.** In pinned Promptfoo 0.123.0 `goat`
 uses Promptfoo's **hosted generation service**: it posts the goal, the running
 conversation (including the target's replies), the `purpose`, and **your account

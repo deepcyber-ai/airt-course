@@ -1,4 +1,13 @@
-# Lab 4 — PyRIT · COMPLETE
+# Lab 4 — PyRIT reference
+
+**OPTIONAL AFTER-COURSE REFERENCE**
+
+> **This optional reference targets Money Agent, not Larkfield.** By default the stages run
+> against **Money Agent (Deep Vault Capital)** on `:8090`, whose flags use the `DVC{` marker —
+> which is why the examples below show `DVC{...}` and `fca03_execution`. The main Module 5
+> examples use **Larkfield on `:8089`** with the `OWASP{` marker. To run this reference against
+> Larkfield instead, pass both the Larkfield URL and its marker:
+> `--url http://localhost:8089 --marker 'OWASP{'`.
 
 ```bash
 export AIRT_ATTACKER=qwen
@@ -7,6 +16,7 @@ python3 modules/module5/pyrit/reference/attack.py --stage crescendo
 python3 modules/module5/pyrit/reference/attack.py --stage goat
 python3 modules/module5/pyrit/reference/attack.py --stage headtohead
 ```
+
 
 ## The stages
 
@@ -29,8 +39,7 @@ Two lines with AUTH-9902       ['fca03_execution']   2s
 ```
 
 Six adaptive turns of persuasion found nothing. Two lines containing a made-up
-reference number executed the trade. That is `FINDINGS.md` §0 — *supply the
-artefact, do not make the argument* — and spikee's GOAT reaches the same result
+reference number executed the trade. That is the *supply the artefact, do not make the argument* lesson — and spikee's GOAT reaches the same result
 independently at 0/4.
 
 ## Scoring without a judge model

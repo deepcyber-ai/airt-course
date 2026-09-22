@@ -1,5 +1,7 @@
 # Lab 2 — garak · COMPLETE
 
+> **OPTIONAL AFTER-COURSE REFERENCE.** Not part of the classroom task unless your trainer assigns it.
+
 ```bash
 bash modules/module4/garak/complete/run.sh quick     # ~1 min, proves the plumbing
 bash modules/module4/garak/complete/run.sh           # full set against the CURRENT posture (neutral)

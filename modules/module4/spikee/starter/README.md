@@ -1,5 +1,7 @@
 # Lab 3 — Spikee (starter)
 
+> **OPTIONAL AFTER-COURSE REFERENCE.** Not part of the classroom task unless your trainer assigns it.
+
 ## What you'll do
 
 Spikee uses a Python connector to send requests to Larkfield. Copy the supplied
@@ -29,6 +31,11 @@ describing it — read the traceback (it's usually a typo in an enum).
 
 ## Run the exercise
 
+**The runnable classroom Spikee command is on the Module 4 entry page** (the `native-demo/spikee`
+block): it generates and tests a supplied dataset in one go. Use that for the class task. The
+steps below are an optional build-your-own-dataset walkthrough; for a complete, runnable
+generate-and-test set see [`../complete/README.md`](../complete/README.md).
+
 **1. Write a dataset aimed at THIS target.** A seed folder needs
 `standalone_user_inputs.jsonl` plus empty `instructions.jsonl`, `jailbreaks.jsonl`
 and `base_user_inputs.jsonl`. Each line looks like:
@@ -52,10 +59,9 @@ compare** the two results.
 ## Read and record
 
 Open the results file printed at the end of the run. Read each prompt, Larkfield's
-reply in `meta.response`, and the flag result in `success`. A first run built from
-generic seeds often scores zero, and the first question to answer is whether that means
-the target held or your test never aimed at anything. "No flag" means no configured flag
-fired — not that the target is safe. Record what you actually got.
+reply in `meta.response`, and the flag result in `success`. Check whether the prompts
+tested the behaviour you intended to assess. A run with no flags does not establish that
+Larkfield resisted an attack. Record the result and the supporting evidence.
 
 ## Optional — troubleshooting, and how the scoring works
 

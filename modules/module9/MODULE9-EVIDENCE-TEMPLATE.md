@@ -1,5 +1,7 @@
 # Module 9 — Evidence-pack template (optional reference)
 
+**OPTIONAL AFTER-COURSE REFERENCE**
+
 Use this when you write up a real finding. It is optional background for the class — you do not
 need to complete every table.
 

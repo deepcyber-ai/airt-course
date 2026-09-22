@@ -1,0 +1,11 @@
+# Lab runtime output — never part of the course package.
+# The labs write traces, scores, generated suites and per-group stores here at run time.
+runs/
+course-runs/
+out/
+redteam.yaml
+**/runs/
+**/course-runs/
+**/out/
+**/redteam.yaml
+.humanbound/

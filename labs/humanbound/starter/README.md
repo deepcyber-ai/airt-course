@@ -1,5 +1,7 @@
 # Lab 5 — humanbound
 
+**OPTIONAL AFTER-COURSE REFERENCE**
+
 The last lab, and the only one that attacks the target as an **agent** rather
 than as a model. It drives multi-turn conversations against a live endpoint,
 probes tool use and scope boundaries, scores against a policy you write, and
@@ -84,8 +86,8 @@ findings that name real actions rather than describing a vibe.
 hb guardrails -o rules.yaml
 ```
 
-Findings become deployable firewall rules. That is the handover to Module 10 —
-the same run that finds a hole also patches it.
+This command converts the findings into candidate firewall rules. Review and test those
+rules before deployment. Module 10 covers that next step.
 
 ## Two things to distrust in the output
 

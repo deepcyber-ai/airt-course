@@ -1,8 +1,9 @@
 # Lab 2 — garak
 
-NVIDIA's probe-based scanner. Where promptfoo asks what *you* thought of, garak
-asks what the community has already catalogued: DAN jailbreaks, encoding
-tricks, prompt injection families, data leakage.
+> **OPTIONAL AFTER-COURSE REFERENCE.** Not part of the classroom task unless your trainer assigns it.
+
+Garak is NVIDIA's probe-based scanner. It runs published probe families for jailbreaks,
+encoding attacks, prompt injection and data leakage.
 
 Garak needs no attacker model. Its prompts are static and most of its detectors
 are rules or small classifiers, so **this lab has no attacker/judge-model
@@ -25,8 +26,8 @@ garak \
   --report_prefix "$PWD/out/smoke"
 ```
 
-That is a deliberately small probe, to prove the plumbing before you spend
-twenty minutes on a real one. You should see a progress bar and, at the end,
+This small probe checks that Garak can reach Larkfield and read its replies before you
+run a longer scan. You should see a progress bar and, at the end,
 `garak run complete` with a path to an HTML report.
 
 ## What `larkfield.json` does
@@ -63,6 +64,14 @@ Start with these; each takes a few minutes:
 | `promptinject` | instruction-override injection |
 | `latentinjection` | a synthetic document + instruction, sent as ONE user prompt |
 | `leakreplay` | coaxing out memorised or configured text |
+
+To run one, replace `lmrc.Profanity` from the connection check with your chosen probe after
+`--probes`, and give it its **own** report prefix so it does not overwrite the smoke report:
+
+```bash
+garak --model_type rest --generator_option_file larkfield.json \
+  --probes dan --generations 1 --report_prefix "$PWD/out/dan-neutral"
+```
 
 The target is `localhost:8089`. The posture is only the system prompt, so to
 compare the hardened target you **restart the same target with the hardened

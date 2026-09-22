@@ -1,6 +1,8 @@
 # Native tool demonstration examples
 
-These are the runnable artefacts for the four Module 4 tool tracks. Follow the common Module 4 page (`../README.md`) for the assigned track, objective and setup. They assume an already running Larkfield neutral target at `http://localhost:8089/chat` and the pinned course tools.
+> **ASSIGNED ROUTE ONLY.** Complete this only if the trainer assigned this tool or half of the exercise.
+
+These files support the four Module 4 tool tracks — the **assigned** classroom exercises (Spikee, Promptfoo, PyRIT, HumanBound). Start with the Module 4 page (`../README.md`) for your assigned task and setup instructions. The separate `garak/`, `promptfoo/` and `spikee/` starter and complete folders are **optional follow-up material**, not the assigned task, unless your trainer says otherwise. Use the course tool versions and start neutral Larkfield at `http://localhost:8089/chat` before running an example.
 
 | File | Purpose |
 |---|---|

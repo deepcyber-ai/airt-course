@@ -1,5 +1,11 @@
 # Lab 1 — promptfoo · COMPLETE
 
+> **OPTIONAL AFTER-COURSE REFERENCE.** Not part of the classroom task unless your trainer assigns it.
+
+> **This config calls a grading model.** Its `llm-rubric` assertion sends the reply to a
+> grading model, which needs approved credentials and spends model calls. The two-scorer
+> comparison here is **Module 6 material**, not part of the Module 4 task.
+
 ```bash
 cd modules/module4/promptfoo/complete
 export PROMPTFOO_CONFIG_DIR="$PWD/course-runs/neutral"    # evidence for the neutral run

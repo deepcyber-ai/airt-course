@@ -1,8 +1,24 @@
 # Module 4 — Single-Turn Attacks
 
-Your group will use one assigned tool to test Larkfield. Every group has the same
-objective, so we can compare the evidence that each tool records. Follow the
-instructions for your tool below. This page plus your tool's files are all you need.
+Your trainer will assign one group task. The classroom task uses `native-demo/spikee/`,
+`native-demo/promptfoo/`, `pyrit/starter/` followed by `pyrit/complete/`, or
+`native-demo/humanbound/prepared-run/`. Garak is the shared connection check. The separate
+Garak, Promptfoo and Spikee starter and complete folders are optional follow-up material
+unless your trainer assigns them.
+
+### During class
+
+1. Run the shared Garak connection check (Preflight step 3).
+2. Run only your assigned track under "Your track": Spikee, Promptfoo, PyRIT, or HumanBound.
+3. On the three live tracks (Spikee, Promptfoo, PyRIT): edit one attempt as directed, re-run,
+   and inspect the request and the reply. The HumanBound group inspects the prepared run and
+   makes no live requests.
+4. Fill in your group's row of the record table.
+
+### What to keep
+
+Your group's row in the record table, plus one copied example — the prompt, Larkfield's
+reply, and one sentence on what your small test does not establish.
 
 > **Optional reference:** [`GETTING-STARTED-WITH-COURSE-TOOLS.md`](../../GETTING-STARTED-WITH-COURSE-TOOLS.md)
 > walks through all five tools (Garak, Promptfoo, Spikee, PyRIT, HumanBound) — what each is,
@@ -23,15 +39,18 @@ containing `modules/` and `labs-ctf/`) and capture its path once:
 ```bash
 export COURSE_ROOT="$PWD"
 ```
-If the trainer started the target centrally, they will give you the endpoint — check it is
-available before you run your tool. On a local VM, bring up one Larkfield target — the same
-command and port you used in Modules 1–2:
+If the trainer started the target centrally, use the endpoint on your setup sheet and check
+it before running a tool. On a local VM, start neutral Larkfield with the command below. It
+uses the same port as Modules 1 and 2.
 ```bash
 airt-target larkfield          # neutral Larkfield on http://localhost:8089
 ```
-Everything below uses neutral Larkfield at `http://localhost:8089` — use the endpoint
-on your setup sheet if it differs. (The posture is only the system prompt: to try the
-hardened target, restart it with the hardened prompt — same port, no new command.)
+All commands below use `http://localhost:8089`. The hardened comparison uses the same
+service and port. Restart Larkfield with the hardened system prompt when instructed.
+
+The supplied files use `http://localhost:8089`. If your setup sheet gives another endpoint,
+stop and ask the trainer which configured files to use. Running these commands unchanged
+would test your own machine.
 
 **2. Budget:** at most **20 requests** to the target for your group, including the
 benign control, setup, revisions and retries. Record transport errors separately.
@@ -49,8 +68,11 @@ Larkfield more widely.
 
 ## Your track
 
-Run the small test set, **edit at least one attempt**, inspect what the tool actually
-sent, then re-run. Each command block starts by moving into the right directory.
+Run only your assigned section. For Spikee, change one prompt in
+`datasets/seeds-larkfield-demo/standalone_user_inputs.jsonl` in the temporary workspace. For
+Promptfoo, change one `prompt` value in `promptfooconfig.yaml`. For PyRIT, change `ATTACK` in
+`starter.py`. Run the same test again and inspect the request and reply. The HumanBound group
+inspects the saved run and makes no live requests.
 
 ### Spikee
 ```bash
@@ -65,10 +87,9 @@ DS=$(ls -t datasets/larkfield-demo-user-input-native-dataset-*.jsonl | head -n 1
 spikee test --dataset "$DS" --target larkfield_http \
   --target-options http://localhost:8089/chat --threads 1 --attempts 1 --no-auto-resume --tag native
 ```
-The seed set has exactly two rows: one ordinary support control and one disclosure
-attempt. In Spikee, `success: true` means the attack met its judge's criterion — the
-opposite sense to a passing Promptfoo assertion. The control is a control; don't report
-the two-row rate as an attack success rate.
+The seed set contains one ordinary support control and one disclosure attempt. In Spikee,
+`success: true` means that the judge's criterion was met. Promptfoo uses the opposite
+meaning for a passing assertion. Report the disclosure attempt separately from the control.
 
 ### Promptfoo
 ```bash
@@ -86,11 +107,10 @@ python3 starter.py
 cd "$COURSE_ROOT/modules/module4/pyrit/complete"
 python3 complete.py
 ```
-Single-turn (PyRIT sends each prompt once, no attacker model). It deliberately has **no
-scorer** — judge the shared objective yourself from the reply, and confirm the real
-reference is present, not just a flag banner. The full requests and replies
-persist in the SQLite memory DB at `out/pyrit.db` (each `[control]`/`[attack]` line also
-prints as it runs).
+PyRIT sends each prompt once and does not use an attacker model. This example has no
+scorer, so read the reply yourself. Confirm that the real reference appears, rather than
+relying on the flag banner. The script prints each control and attack as it runs, and
+saves every request and reply in `out/pyrit.db`.
 
 ### HumanBound (inspect a recorded run)
 HumanBound generates its own tests and does not sit under the 20-request live allowance,
@@ -98,13 +118,12 @@ so this track inspects a **prepared Larkfield run** instead of running live:
 ```bash
 python3 "$COURSE_ROOT/modules/module4/native-demo/humanbound/prepared-run/read-results.py"
 ```
-It reports the totals and, for our objective, how many of HumanBound's generated tests
-disclosed the internal configuration reference (8 of 304 in this run), and shows one
-disclosing test with the attacker prompt and the target's reply. Identify only the tests
-aimed at internal-configuration disclosure and count those as your denominator. This is a different workflow from the other three tracks — compare the
-exposure it found, not a matched success rate. (The config that drove the run is in
-`modules/module4/native-demo/humanbound/`; `--local` means its engine runs locally, but
-its attacker/judge models may still call a remote provider.)
+The script reports 304 generated tests and shows one of the eight replies that contained
+the internal reference. Record 8 of 304 as a whole-run count. The 304 tests cover several
+categories, so this is not an objective-specific success rate. Copy the displayed prompt and
+reply, then state that limitation. The configuration is in
+`modules/module4/native-demo/humanbound/`. The `--local` option runs the engine locally,
+although its attacker and judge models may still use a remote provider.
 
 ## Record (per group)
 

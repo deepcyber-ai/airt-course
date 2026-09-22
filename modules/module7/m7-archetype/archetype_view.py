@@ -10,9 +10,9 @@ key at the debrief). No model or target calls are made.
 
 These are MEASURED reviewed runs across DIFFERENT objectives/postures - they are a
 set for identifying attacker BEHAVIOUR, NOT a common-objective coverage comparison.
-For the selection decision, use the constructed coverage in
-`modules/module7/m7-selection/benchmark_view.py` (attackers x objectives, with counts), not
-one episode per objective. Do not read these cards as a model ranking.
+For the selection decision, use the measured comparison in `MODULE7-SELECTION-HANDOUT.md`,
+not one episode per objective. The `m7-selection` viewers use invented figures and are
+optional interface demonstrations. Do not read these cards as a model ranking.
 
 (c) 2026 Deep Cyber Ltd. Deep Cyber course material, under the course licence (see LICENCE.md). Not open source.
 """
@@ -48,23 +48,24 @@ def main():
         print(f"  {c['card_id']}   model: {c['model']}   target: {c['target']} [{c['posture']}]"
               f"   objective: {c['intended_objective']}")
         for sno, snd in c["relevant_sends"].items():
-            print(f"    -- relevant send {sno} --")
+            print(f"    -- request {sno} --")
             _wrap("attacker prompt", snd["prompt"], 200, a.full)
             _wrap("target response", snd["response"], 200, a.full)
-        print(f"    {'physical calls':20}: {c['physical_calls']}   turns: {c['turns']}")
-        print(f"    {'top-level flags':20}: {c['top_level_flags'] or '[]'}   collateral: {c['collateral_flags'] or '[]'}")
+        print(f"    {'target requests':20}: {c['physical_calls']}   turns: {c['turns']}")
+        print(f"    {'episode flags':20}: {c['top_level_flags'] or '[]'}   collateral: {c['collateral_flags'] or '[]'}")
         _wrap("reviewed outcome", c["reviewed_outcome"], 400, True)
         print(f"    ({c['measured_or_constructed']}; source {c['source']['source_sha256'][:12]})\n")
 
     print("  Step 1 (behaviour): describe each card's actual behaviour, then label its")
     print("  archetype(s). A style is an observation about the transcript, not a permanent")
     print("  vendor trait; a model can show more than one, and change mid-attack.")
-    print("  Keep the behavioural description SEPARATE from the objective verdict, and read")
-    print("  the reviewed outcome (incl. CARD-3, where an EMPTY top-level flag hides a real")
-    print("  disclosure in the send ledger, and CARD-4, a SIMULATED receipt, not a deletion).")
-    print("\n  Steps 2-4 (selection): use the constructed coverage table -")
-    print("    python3 modules/module7/m7-selection/benchmark_view.py")
-    print("  which compares attackers x objectives with counts; these single episodes cannot.")
+    print("  Keep the behaviour description separate from the objective verdict, and read the")
+    print("  reviewed outcome. In card 3 the episode flags are empty, but request 5 returned")
+    print("  another customer's contact details, so read that request. In card 4 the receipt")
+    print("  was simulated and no row changed.")
+    print("\n  Steps 2-4 (selection): use MODULE7-SELECTION-HANDOUT.md for the measured")
+    print("  selection exercise. The m7-selection viewers use invented figures and are")
+    print("  optional interface demonstrations.")
 
 
 if __name__ == "__main__":

@@ -1,18 +1,18 @@
 # Module 5 closer — the components reveal
 
-The five-minute transition at the end of Module 5. Module 5 ran the multi-turn
-attacks with prepared settings and kept the spotlight on the *technique*. This
-opens one **saved** trace and names the three things that were quietly at work:
+**CLASS TASK** — viewing only; there is no file to submit.
+
+This five-minute exercise opens an illustrative saved trace. Viewing it makes no model
+calls and costs nothing.
 
 ```bash
 python3 modules/module5/m5-transition/transition_view.py
 ```
 
-- the **attacker** — the adversarial model that wrote each turn,
-- the **technique** — how the search was organised (Crescendo here),
-- the **scorer** — and the key point: it was a deterministic **rule** (a marker
-  match), **not** a model. A model name in a config does not establish that an
-  LLM judge was ever called.
+- The **attacker** is the model that wrote each request.
+- The **technique** is Crescendo, which controlled how the search developed.
+- The **scorer** is a local rule that checked for a marker. This example did not use an
+  LLM judge.
 
-That hands off to Module 6, where the scorer stops being invisible machinery and
-becomes the subject. It is a saved trace, labelled as such — no live run, no spend.
+Module 6 examines scorers in more detail. This trace illustrates the components and is
+not authenticated evidence that an action occurred.

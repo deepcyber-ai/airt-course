@@ -1,8 +1,17 @@
 # Module 4 — where each tool keeps the evidence
 
+**CLASS TASK**
+
 The report on screen is a **summary**. The raw prompts and replies — the actual
-evidence for your write-up — live in the files below. Run each command from the
-tool's own directory.
+evidence for your write-up — live in the files below.
+
+**Where to run these.** Start in the extracted course folder (the one with `modules/` and
+`labs-ctf/`). PyRIT and Promptfoo write their evidence under their own
+`modules/module4/...` folders. **Spikee** writes `results/` into the **temporary workspace**
+you created (the `mktemp` / `~/spikee-ws` directory), not under `modules/`. The **HumanBound**
+read command runs from the **course folder** (its path is shown in full). Direct Promptfoo
+database inspection works only if you set `$PROMPTFOO_CONFIG_DIR` **before** the run;
+otherwise use `promptfoo view`.
 
 | Tool | Summary view | Raw evidence (prompts + replies) | Read it |
 |---|---|---|---|

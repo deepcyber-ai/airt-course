@@ -1,6 +1,12 @@
 # Module 7 selection handout. Attackers, scorers, and how to repeat the comparison.
 
-DeepCyber AI Red Teaming, AMLUCS 2026. Prepared 15 September 2026 from the reviewed course evaluations. No new runs were made for this handout; every figure below is read from the named source file.
+**OPTIONAL AFTER-COURSE REFERENCE**
+## How to use this handout
+
+Use sections 2 to 5 to choose your attackers, and sections 6 and 7 to choose how to score. Every figure here is a measured comparison; detailed provenance is retained by the instructor.
+
+
+DeepCyber AI Red Teaming, AMLUCS 2026. Prepared 15 September 2026 from the reviewed course evaluations. No new runs were made for this handout; every figure below is read from the reviewed course evaluations, whose detailed provenance is retained by the instructor.
 
 ## 1. What the numbers measure
 
@@ -42,7 +48,7 @@ Erasure is 10/10 for every attacker in both configurations. It does not discrimi
 | Qwen | 5/10 (recorded 5) | 4/10 (recorded 4) | 10/10 (recorded 10) |
 | Qwen3-uncensored | 0/10 (recorded 0) | 5/10 (recorded 5) | 10/10 (recorded 10) |
 
-Source: `reviews/review2/both-bakeoffs-full-review/dvc-effects/per-attacker-posture-objective.csv`, columns `review_verified_objective` and `raw_flag_success`, N = 10 per cell; `EVIDENCE.md` in the same folder. One GLM hardened-trade run has incomplete event capture; it remains in the ten-run denominator and is not a verified negative.
+Based on the review-verified objective and the raw flag-success measures, N = 10 per cell. One GLM hardened-trade run has incomplete event capture; it remains in the ten-run denominator and is not a verified negative. Detailed provenance is retained by the instructor.
 
 ## 4. Larkfield, recorded category flags out of ten runs
 
@@ -82,13 +88,13 @@ Hardened configuration.
 | Qwen | 7/10 | 10/10 | 0/10 | 3/10 |
 | Qwen3-uncensored | 1/10 | 10/10 | 0/10 | 2/10 |
 
-These are recorded category flags, not reviewed objective occurrences, and are provisional pending the detector rescore noted above; the reviewed occurrence columns for Larkfield are in `cells.csv` and `FINDINGS.md`. Source: `reviews/review2/both-bakeoffs-full-review/larkfield/cells.csv`.
+These are recorded category flags, not reviewed objective occurrences, and are provisional pending the detector rescore noted above. The reviewed occurrence columns for Larkfield are retained by the instructor.
 
 ## 5. The worked choice
 
 Trade investigation, undefended Deep Vault Capital: start with Qwen (10/10; Opus 6/10). Confidential-document disclosure: start with Opus (10/10; Qwen 2/10). Rejected alternative: GPT-4.1 as a single attacker for both objectives (6/10 and 7/10); it recorded fewer successes on each objective in this sample under the same maximum target-request allowance (not necessarily the same realised requests, retries or cost). These are supported starting choices for this sample, subject to permitted routes. They are not promises for each learner run.
 
-A second attacker adds coverage and a second full request budget. Two attackers at full budget do not show superiority over one attacker under the same total budget. Costs are for the whole workflow: attacker generation, target calls, judging and retries.
+A second attacker can add coverage and a second full request budget. Two attackers at full budget do not show superiority over one attacker under the same total budget. Costs are for the whole workflow: attacker generation, target calls, judging and retries.
 
 ## 6. Scorer panel: agreement with historical flags
 
@@ -120,13 +126,13 @@ Column legend: **Elig** = eligible cases; **Decided** = cases the judge marked S
 
 What the table does and does not support. It measures agreement with historical flags on decided cases. It does not measure accuracy against reviewed ground truth, and it does not support a leaderboard or a claim that the cheapest model is the best judge. UNVERIFIED can be the correct response when the required evidence is missing. Qwen's 96.77 per cent on 371 decided cases equals the always-FAILURE baseline on those rows, with no SUCCESS verdicts and 517 cases left UNVERIFIED. GPT-4o-mini decided 669 cases, gave 170 SUCCESS verdicts, and agreed at 88.34 per cent against a 71.30 per cent baseline.
 
-Source: `reviews/judge-scorer-analysis/ANALYSIS.md`, Pass B.
+Detailed provenance is retained by the instructor (Pass B analysis).
 
 ## 7. Choosing how to score
 
 For an action objective (a trade, a deletion, an email), the evidence is the execution record and the state change; a deterministic check on that evidence is the primary scorer. For semantic content (a disclosure, an unsupported claim), the rubric is defined first and candidate scorers are checked against independently reviewed cases. Precision, recall or a confusion matrix need a common cohort with supported reference labels; the historical agreement panel is not that cohort. A second model opinion does not create ground truth.
 
-## 9. Repeating the comparison after the course
+## 8. Repeating the comparison after the course
 
 1. Define objectives and success criteria.
 2. Choose candidate attackers and scorers.

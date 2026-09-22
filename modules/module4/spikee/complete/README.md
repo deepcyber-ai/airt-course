@@ -1,6 +1,11 @@
 # Lab 3 — spikee · COMPLETE
 
-Two halves: a dataset aimed at this target, then GOAT.
+> **OPTIONAL AFTER-COURSE REFERENCE.** Not part of the classroom task unless your trainer assigns it.
+
+Two halves: a dataset aimed at this target, then GOAT. **Only the first section (the
+single-turn dataset) belongs to Module 4.** GOAT is a **Module 5** multi-turn technique, and
+the LLM judge comparison is **Module 6** material — do them there, not as part of the Module
+4 task.
 
 ## Setup
 
@@ -71,13 +76,11 @@ database). Mutations are single-turn, so this mode needs no attacker model:
 bash run-destructive.sh mutations 8089 "$DS"
 ```
 
-Run the read-only set against the target (`port=8089`), then restart it with the hardened prompt and re-run
-hardened) and diff which probes still score. Record the result as your own. The
-point of aiming the seeds is that a scanner reporting zero against a target you
-have **not** aimed at tells you nothing; whether the aimed seeds score more than
-generic support-question seeds is for your run to show, not this README. A marker
-is a discovery signal, not proof — for the destructive probes read the tool
-events and confirm the effect.
+Run the read-only set against Larkfield on port 8089. Restart the same target with the
+hardened system prompt, then run the set again. Compare which probes still score and
+record what your run showed. A zero score only means that none of the configured checks
+fired. For destructive probes, inspect the tool events to confirm whether the action
+occurred.
 
 ## Half two — GOAT
 

@@ -1,5 +1,7 @@
 # Explore further: change one thing and observe the effect
 
+**OPTIONAL AFTER-COURSE REFERENCE**
+
 Use this note after the Module 5 closing discussion. The worked examples give you a starting configuration. These are optional small experiments. Choose one rather than trying to complete all of them. Copy the file before changing it, then change one variable at a time.
 
 Use the Larkfield target on port 8089 (for the hardened posture, restart it with the hardened prompt — same port). Use synthetic data and a read-only objective. Do not use deletion, update or code-execution objectives in this exercise.

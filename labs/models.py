@@ -20,18 +20,138 @@ rather than a comparison.
 from __future__ import annotations
 
 import os
+import re
 from pathlib import Path
 
 import yaml
 
-try:
-    # Keys for the non-OpenAI providers live in .env, the same file the mock
-    # reads. Without this a key that is plainly present on disk reads as
-    # absent, and the model is skipped as unreachable.
-    from dotenv import load_dotenv
-    load_dotenv(Path(__file__).resolve().parent.parent / ".env")
-except ImportError:
-    pass
+def _parse_env_line(line: str):
+    """Parse one .env line into (KEY, VALUE), or None for a blank/comment line.
+
+    Supports ``export KEY=...``, single/double quotes, and a trailing `` # comment`` on an
+    unquoted value. Raises ValueError on a malformed assignment (invalid name, unterminated
+    quote) so a corrupt credential file is never loaded silently."""
+    stripped = line.strip()
+    if not stripped or stripped.startswith("#"):
+        return None
+    if "=" not in stripped:
+        raise ValueError(f"not a KEY=VALUE line: {line!r}")
+    key, _, rest = stripped.partition("=")
+    key = key.strip()
+    if key.startswith("export "):
+        key = key[len("export "):].strip()
+    if not re.match(r"^[A-Za-z_][A-Za-z0-9_]*$", key):
+        raise ValueError(f"invalid variable name: {key!r}")
+    rest = rest.strip()
+    if rest[:1] in ("'", '"'):
+        quote = rest[0]
+        end = rest.find(quote, 1)
+        if end == -1:
+            raise ValueError(f"unterminated quote for {key}")
+        val = rest[1:end]
+        trailing = rest[end + 1:]
+        if not re.match(r"^(\s*|\s+#.*)$", trailing):
+            raise ValueError(f"unexpected text after quoted value for {key}: {trailing!r}")
+    else:
+        m = re.search(r"\s#", rest)          # whitespace-then-# starts an inline comment
+        val = (rest[:m.start()] if m else rest).strip()
+    return key, val
+
+
+def _credential_keys() -> set[str]:
+    """Provider-credential variable names we may import from a .env. Model-SELECTION
+    variables (AIRT_GROUP / AIRT_ATTACKER / AIRT_SCORER), TARGET_* and run paths are never
+    imported — model selection stays an explicit shell choice."""
+    keys = {"OPENAI_API_KEY", "ANTHROPIC_API_KEY", "GEMINI_API_KEY", "FIREWORKS_API_KEY",
+            "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_SESSION_TOKEN",
+            "AWS_PROFILE", "AWS_REGION", "AWS_DEFAULT_REGION"}
+    try:
+        for spec in catalogue().values():
+            env = spec.get("api_key_env")
+            if isinstance(env, str) and env:
+                keys.add(env)
+    except Exception:
+        pass
+    return keys
+
+
+def _load_env_file(path: Path, allowed: set[str]) -> None:
+    """Load only the allowed credential keys from a .env into os.environ, never overriding a
+    variable already set. Atomic: the WHOLE file is parsed and validated first, and nothing is
+    written to the environment unless every line is valid. Raises ValueError on a malformed line
+    or OSError on an unreadable file, leaving os.environ unchanged."""
+    pending: dict[str, str] = {}
+    for line in path.read_text().splitlines():
+        parsed = _parse_env_line(line)
+        if parsed is None:
+            continue
+        key, val = parsed
+        pending[key] = val
+    for key, val in pending.items():
+        if key in allowed and key not in os.environ:
+            os.environ[key] = val
+
+
+def load_env():
+    """Load model-provider credentials from the .env for whatever environment we run under.
+
+    Deterministic order (no walk through every working-directory ancestor):
+      1. ``$AIRT_ENV_FILE`` if set — the SOLE authoritative source. If it is missing,
+         unreadable or malformed we stop with an error rather than fall back to another
+         account.
+      2. otherwise, in order: the course root's .env (the tree with models.yaml), the
+         installed harness root's .env and its parent (on the VM, /opt/airt/src/.env), then
+         /opt/airt/src/.env. Every existing one is read; the first value wins per key.
+
+    Only provider-credential variables are imported (see ``_credential_keys``). An
+    already-exported variable is never overwritten.
+    """
+    allowed = _credential_keys()
+
+    if "AIRT_ENV_FILE" in os.environ:      # present (even if empty) => the sole authoritative source
+        explicit = os.environ["AIRT_ENV_FILE"]
+        path = Path(explicit) if explicit else None
+        if not explicit or not path.is_file():
+            raise SystemExit(f"AIRT_ENV_FILE={explicit!r} is empty, missing or unreadable - "
+                             f"refusing to fall back to another .env.")
+        try:
+            _load_env_file(path, allowed)
+        except (ValueError, OSError) as exc:
+            raise SystemExit(f"AIRT_ENV_FILE={explicit!r} could not be loaded: {exc}")
+        return path
+
+    candidates: list[Path] = []
+    root = os.environ.get("AIRT_COURSE_ROOT")
+    if root:
+        candidates.append(Path(root) / ".env")
+    for base in Path(__file__).resolve().parents:
+        if (base / "models.yaml").is_file():
+            candidates.append(base / ".env")
+            break
+    try:
+        import harness
+        hroot = Path(harness.__file__).resolve().parent.parent
+        candidates.append(hroot / ".env")
+        candidates.append(hroot.parent / ".env")
+    except Exception:
+        pass
+    candidates.append(Path("/opt/airt/src/.env"))
+
+    loaded, seen = None, set()
+    for cand in candidates:
+        try:
+            cand = cand.resolve()
+        except Exception:
+            continue
+        if cand in seen or not cand.is_file():
+            continue
+        seen.add(cand)
+        try:
+            _load_env_file(cand, allowed)      # a malformed non-explicit .env is skipped
+            loaded = loaded or cand
+        except (ValueError, OSError):
+            continue
+    return loaded
 
 DEFAULT_ATTACKER = "qwen"
 
@@ -197,3 +317,6 @@ if __name__ == "__main__":
         except SystemExit as e:
             print(" ", e)
     print(f"  promptfoo grader = {promptfoo_grader()}")
+
+
+load_env()   # load provider credentials once on import (see load_env)
