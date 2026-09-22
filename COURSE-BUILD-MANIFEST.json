@@ -2,7 +2,7 @@
   "product": "airt-harness-course",
   "edition": "AMLUCS-2026",
   "course_manifest_version": "0.1-draft",
-  "source_revision": "0da176a5fa7a5a5b687d96b2ff775b3d2ab50a52",
+  "source_revision": "3ae633a7e6c92b41bc8583d59218a0226f39dc5a",
   "dirty_files": {},
   "consumes": {
     "harness_release": "v1.0.18",
@@ -22,7 +22,7 @@
     "m5_budget": "24 requests/pair for the core MANUAL exercise; the OPTIONAL full-tool route (one tool per pair) allows ~\u00a32/learner",
     "scorer_criteria": "m6-orig-v1 / m6-alt-v1"
   },
-  "attendee_file_count": 195,
+  "attendee_file_count": 196,
   "instructor_file_count": 11,
   "scanner": {
     "version": "scan_secrets/1.0.0",
@@ -271,8 +271,13 @@
     },
     "smoke-test.sh": {
       "source": "course-production/smoke-test.sh",
-      "source_sha256": "14b435b7a7cb8553cae23b9fad221ba9e0dd2c84bbbd309f2770dd4a5518b383",
-      "dest_sha256": "14b435b7a7cb8553cae23b9fad221ba9e0dd2c84bbbd309f2770dd4a5518b383"
+      "source_sha256": "20eac0fc7b0f46584bff84f0f4a42a34a7a4c5ac0f760c8a54cd241eac829797",
+      "dest_sha256": "20eac0fc7b0f46584bff84f0f4a42a34a7a4c5ac0f760c8a54cd241eac829797"
+    },
+    "update-art.sh": {
+      "source": "course-production/update-art.sh",
+      "source_sha256": "6875f779487067092970cabc0854dca78f5d67ed039ef61fe6585ab455b023af",
+      "dest_sha256": "6875f779487067092970cabc0854dca78f5d67ed039ef61fe6585ab455b023af"
     },
     ".gitignore": {
       "source": "export/course-root.gitignore",

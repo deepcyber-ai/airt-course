@@ -36,6 +36,7 @@ art_hint() {
   echo "       uv pip install --python /opt/airt/venv/bin/python --force-reinstall --no-deps 'art>=6.5.0'"
   echo "     Verify: /opt/airt/venv/bin/python -c 'from art import text2art; print(\"ok\")'"
   echo "     The course uses no IBM ART; on a rebuilt image it lives in its own venv (/opt/airt/art-venv)."
+  echo "     Or just run the packaged one-shot from the pack root:  bash update-art.sh"
   echo "     (This affects EVERY PyRIT lab, not just this one.)"
 }
 
