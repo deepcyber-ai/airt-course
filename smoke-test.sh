@@ -68,6 +68,10 @@ if [ "$TARGET_UP" = 1 ]; then
   sout="$(python3 modules/module5/pyrit/single-attacker/complete.py 2>&1)"
   if echo "$sout" | grep -q "scorer verdict"; then ok "M5 single-attacker"
   elif echo "$sout" | grep -qiE "no reachable endpoint|api_key"; then sk "M5 single-attacker — model key not found"
+  elif echo "$sout" | grep -q "text2art"; then
+    no "M5 single-attacker — PyRIT's 'art' dependency is too old (needs text2art)"
+    echo "     Fix once, as the VM admin/instructor:  /opt/airt/venv/bin/pip install -U 'art>=6.5.0'"
+    echo "     (this affects every PyRIT lab, not just this one)"
   else no "M5 single-attacker"; echo "$sout" | tail -3; fi
 else sk "M5 single-attacker — target :8089 down"; fi
 
